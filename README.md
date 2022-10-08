@@ -10,7 +10,7 @@ Original App Design Project - README Template
 2. [Schema](#Schema)
 
 ## Overview
-### Description
+### The user can use this app to get access to lastest manga and anime without any subscription
 [Description of your app]
 
 ### App Evaluation
