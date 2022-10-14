@@ -15,12 +15,12 @@ The user can use this app to get access to lastest manga and anime without any s
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
-- **Category:**
+- **Category: Anime and Manga**
 - **Mobile:**
-- **Story:**
+- **Story: **
 - **Market:**
 - **Habit:**
-- **Scope:**
+- **Scope: All anime and manga lover app**
 
 ## Product Spec
 
