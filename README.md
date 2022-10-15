@@ -16,9 +16,9 @@ The user can use this app to get access to lastest manga and anime without any s
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category: Anime and Manga**
-- **Mobile:**
+- **Mobile: Iphones**
 - **Story: **
-- **Market:**
+- **Market: Comics**
 - **Habit:**
 - **Scope: All anime and manga lover app**
 
@@ -29,20 +29,26 @@ The user can use this app to get access to lastest manga and anime without any s
 **Required Must-have Stories**
 
 * [fill in your required user stories here]
+* []user will be able to log in
+* []user will be able to see the latest animes and manga
+* []user will be able to have different type of animes genre to pick from. 
 * ...
 
 **Optional Nice-to-have Stories**
 
 * [fill in your required user stories here]
+* []uswer is able to watch the anime from the app
 * ...
 
 ### 2. Screen Archetypes
 
 * [list first screen here]
    * [list associated required story here]
+   * user will have a loging screen
    * ...
 * [list second screen here]
    * [list associated required story here]
+   * user will have a feed of animes and manga and differen genre to search
    * ...
 
 ### 3. Navigation
