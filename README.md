@@ -17,7 +17,7 @@ The user can use this app to get access to lastest manga and anime without any s
 [Evaluation of your app across the following attributes]
 - **Category: Anime and Manga**
 - **Mobile: Iphones**
-- **Story: **
+- **Story: We all came up with this idea because most of the app requires subscription to get access to anime and manga. So manga and anime lover we decided to build this app**
 - **Market: Comics**
 - **Habit:**
 - **Scope: All anime and manga lover app**
