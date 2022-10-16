@@ -57,26 +57,26 @@ The user can use this app to get access to lastest manga and anime without any s
 
 **Tab Navigation** (Tab to Screen)
 
-* [LogOut] 
-* [Sign In]
-* [Sign Up]
+* LogOut 
+* Sign In
+* Sign Up
 
 **Flow Navigation** (Screen to Screen)
 
-* [LogIn Page]
-   * [Sign Up page]
-   * [or Logged In Page/ Home Page]
-* [Home Page]
-   * [Anime]
-   * [Manga]
-* [Anime]
-   * [Particular Anime and its episodes page]
-   * [Back to Home Page]
-   * [Manga page]
-* [Manga]
-   * [Particular Manga and its chapters page]
-   * [Back to Home Page]
-   * [Anime page]
+* LogIn Page
+   * Sign Up page
+   * or Logged In Page/ Home Page
+* Home Page
+   * Anime
+   * Manga
+* Anime
+   * Particular Anime and its episodes page
+   * Back to Home Page
+   * Manga page
+* Manga
+   * Particular Manga and its chapters page
+   * Back to Home Page
+   * Anime page
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
