@@ -29,62 +29,62 @@ The user can use this app to get access to lastest manga and anime without any s
 **Required Must-have Stories**
 
 * [fill in your required user stories here]
-* []user will be able to log in
-* []user can signup to create new account
-* []user will be able to see the latest animes and manga
-* []user will be able to have different type of animes genre to pick from. 
+- **[]user will be able to log in**
+- **[]user can signup to create new account**
+- **[]user will be able to see the latest animes and manga**
+- **[]user will be able to have different type of animes genre to pick from.**
 * ...
 
 **Optional Nice-to-have Stories**
 
 
-* []user is able to watch the anime from the app
-* []user will be able to read manga
+**[]user is able to watch the anime from the app**
+**user will be able to read manga**
 * ...
 
 ### 2. Screen Archetypes
 
-* Log In Scree
-   * SigUp screen
-   * Home Screen with navigation bar 
+- **Log In Scree**
+   - **SigUp screen**
+   - **Home Screen with navigation bar**
    * ...
-* Home Screen
-   * Anime Screen
-   * Manga Screen
+- **Home Screen**
+   - **Anime Screen**
+   - **Manga Screen**
    
-* Anime Screen
-   * Home Screen
-   * Manga Screen
+-**Anime Screen**
+   - **Home Screen**
+   - **Manga Screen**
    
-* Manga Screen
-   * Anime Screen
-   * Home Screen
+**Manga Screen**
+  - **Anime Screen**
+  - **Home Screen**
    
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* LogOut 
-* Sign In
-* Sign Up
+- **LogOut** 
+- **Sign In**
+- **Sign Up**
 
 **Flow Navigation** (Screen to Screen)
 
-* LogIn Page
-   * Sign Up page
-   * or Logged In Page/ Home Page
-* Home Page
-   * Anime
-   * Manga
-* Anime
-   * Particular Anime and its episodes page
-   * Back to Home Page
-   * Manga page
-* Manga
-   * Particular Manga and its chapters page
-   * Back to Home Page
-   * Anime page
+- **LogIn Page**
+   - **Sign Up page**
+   - **or Logged In Page/ Home Page
+- **Home Page**
+   - **Anime**
+   - **Manga**
+- **Anime
+   - **Particular Anime and its episodes page**
+   - **Back to Home Page**
+   - **Manga page**
+- **Manga
+   - **Particular Manga and its chapters page**
+   - **Back to Home Page**
+   - **Anime page**
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
