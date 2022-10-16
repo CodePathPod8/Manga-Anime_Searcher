@@ -30,6 +30,7 @@ The user can use this app to get access to lastest manga and anime without any s
 
 * [fill in your required user stories here]
 * []user will be able to log in
+* []user can signup to create new account
 * []user will be able to see the latest animes and manga
 * []user will be able to have different type of animes genre to pick from. 
 * ...
@@ -37,7 +38,8 @@ The user can use this app to get access to lastest manga and anime without any s
 **Optional Nice-to-have Stories**
 
 * [fill in your required user stories here]
-* []uswer is able to watch the anime from the app
+* []user is able to watch the anime from the app
+* []user will be able to read manga
 * ...
 
 ### 2. Screen Archetypes
@@ -55,18 +57,26 @@ The user can use this app to get access to lastest manga and anime without any s
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* [LogOut] 
+* [Sign In]
+* [Sign Up]
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* [LogIn Page]
+   * [Sign Up page]
+   * [or Logged In Page/ Home Page]
+* [Home Page]
+   * [Anime]
+   * [Manga]
+* [Anime]
+   * [Particular Anime and its episodes page]
+   * [Back to Home Page]
+   * [Manga page]
+* [Manga]
+   * [Particular Manga and its chapters page]
+   * [Back to Home Page]
+   * [Anime page]
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
