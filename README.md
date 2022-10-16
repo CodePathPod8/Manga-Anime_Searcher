@@ -37,21 +37,29 @@ The user can use this app to get access to lastest manga and anime without any s
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
+
 * []user is able to watch the anime from the app
 * []user will be able to read manga
 * ...
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * user will have a loging screen
+* Log In Scree
+   * SigUp screen
+   * Home Screen with navigation bar 
    * ...
-* [list second screen here]
-   * [list associated required story here]
-   * user will have a feed of animes and manga and differen genre to search
-   * ...
+* Home Screen
+   * Anime Screen
+   * Manga Screen
+   
+* Anime Screen
+   * Home Screen
+   * Manga Screen
+   
+* Manga Screen
+   * Anime Screen
+   * Home Screen
+   
 
 ### 3. Navigation
 
