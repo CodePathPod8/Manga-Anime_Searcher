@@ -40,23 +40,23 @@ The user can use this app to get access to lastest manga and anime without any s
 
 **[]user is able to watch the anime from the app**
 **user will be able to read manga**
-* ...
+
 
 ### 2. Screen Archetypes
 
 - **Log In Scree**
    - **SigUp screen**
    - **Home Screen with navigation bar**
-   * ...
+   
 - **Home Screen**
    - **Anime Screen**
    - **Manga Screen**
    
--**Anime Screen**
+- **Anime Screen**
    - **Home Screen**
    - **Manga Screen**
    
-**Manga Screen**
+- **Manga Screen**
   - **Anime Screen**
   - **Home Screen**
    
@@ -73,15 +73,15 @@ The user can use this app to get access to lastest manga and anime without any s
 
 - **LogIn Page**
    - **Sign Up page**
-   - **or Logged In Page/ Home Page
+   - **or Logged In Page/ Home Page**
 - **Home Page**
    - **Anime**
    - **Manga**
-- **Anime
+- **Anime**
    - **Particular Anime and its episodes page**
    - **Back to Home Page**
    - **Manga page**
-- **Manga
+- **Manga**
    - **Particular Manga and its chapters page**
    - **Back to Home Page**
    - **Anime page**
