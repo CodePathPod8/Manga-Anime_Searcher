@@ -87,7 +87,6 @@ The user can use this app to get access to lastest manga and anime without any s
    - **Anime page**
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="https://github.com/CodePathPod8/Manga-Anime_Searcher/blob/main/Screen%20Shot%202022-10-17%20at%209.44.36%20PM.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
