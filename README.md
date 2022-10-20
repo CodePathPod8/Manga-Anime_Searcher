@@ -91,6 +91,7 @@ The user can use this app to get access to lastest manga and anime without any s
 
 ### [BONUS] Digital Wireframes & Mockups
 <img src="https://github.com/CodePathPod8/Manga-Anime_Searcher/blob/main/Screen%20Shot%202022-10-19%20at%208.53.28%20PM.png">
+
 ### [BONUS] Interactive Prototype
 ![](https://i.imgur.com/VHUIfVX.gif)
 
