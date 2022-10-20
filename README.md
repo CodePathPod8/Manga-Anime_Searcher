@@ -92,6 +92,7 @@ The user can use this app to get access to lastest manga and anime without any s
 ### [BONUS] Digital Wireframes & Mockups
 
 ### [BONUS] Interactive Prototype
+![](https://i.imgur.com/VHUIfVX.gif)
 
 ## Schema 
 [This section will be completed in Unit 9]
