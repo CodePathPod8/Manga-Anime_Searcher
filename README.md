@@ -107,7 +107,7 @@ The user can use this app to get access to lastest manga and anime without any s
 | `favorites count` | number | number of favorites anime and manga |
 | `rating rank` | number | rating |
 | `poster image` | Object | date of update |
-| `cover image` | String | date of update |
+| `cover image` | Object | date of update |
 
 
 
