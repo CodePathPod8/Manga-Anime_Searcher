@@ -98,8 +98,21 @@ The user can use this app to get access to lastest manga and anime without any s
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+| Property | Type | Description |
+| --- | --- | --- |
+| `created At` | String | date of creation of anime and manga |
+| `uodated At` | String | date of update of anime and manga |
+| `synopsis` | String | summary of anime and manga |
+| `title` | Object | containing three string: One english, japanese_english and japanese |
+| `favorites count` | number | number of favorites anime and manga |
+| `rating rank` | number | rating |
+| `poster image` | Object | date of update |
+| `cover image` | String | date of update |
+
+
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
