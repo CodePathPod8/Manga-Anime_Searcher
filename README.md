@@ -112,7 +112,39 @@ The user can use this app to get access to lastest manga and anime without any s
 
 
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+- Home Feed Screen
+   - (Read/Get) Query all popular anime and manga to be display
+   - pick between anime and manga  
+- Anime
+   
+   - top anime back drop, tittle and short overview
+   - show latest Animes release
+   - show popular animes right now 
+- Details about animes/mangas
+   - user can click and see preview of animes or mangas 
+- Manga
+   - top Manga back drop, tittle and short overview
+   - show latest Animes release
+   - show popular animes right now 
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+- A API of Kitsu and Parse
+   - Base URL - https://kitsu.io/api/edge
+| HTTP Verb | EndPoint | Description |
+| --- | --- | --- |
+| `GET` | /Anime | Get current anime Series |
+| `GET` | /Episode | get details about an expecific anime episode |
+| `GEt` | /Trending Anime | Show most popular animes |
+| `GET` | /Manga | Get current Manga Series |
+| `GET` | /Chapters | get details about an expecific Manga episode |
+| `GEt` | /Trending Manga| Show most popular Manga |
+
+- A API of Parse  
+   -base url server - https://parseapi.back4app.com  
+| HTTP Verb | EndPoint | Description |
+| --- | --- | --- |
+| `GET` | /Users | access user data from the data base authenticate to log in |
+| `GET` | /Basic Queries | to get data from the Database |
+| `GEt` | /Sessions | keep current user loggedin |
+   
+
 
