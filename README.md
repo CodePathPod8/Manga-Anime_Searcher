@@ -127,7 +127,7 @@ The user can use this app to get access to lastest manga and anime without any s
    - show latest Animes release
    - show popular animes right now 
 
-- A API of Kitsu
+- An API of Kitsu
    - Base URL - https://kitsu.io/api/edge
 
 | HTTP Verb | EndPoint | Description |
@@ -139,7 +139,7 @@ The user can use this app to get access to lastest manga and anime without any s
 | `GET` | /Chapters | get details about an expecific Manga episode |
 | `GEt` | /Trending Manga| Show most popular Manga |
 
-- A API of Parse  
+- An API of Parse  
    -base url server - https://parseapi.back4app.com  
 
 
