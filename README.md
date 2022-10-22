@@ -126,8 +126,8 @@ The user can use this app to get access to lastest manga and anime without any s
    - top Manga back drop, tittle and short overview
    - show latest Animes release
    - show popular animes right now 
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
-- A API of Kitsu and Parse
+
+- A API of Kitsu
    - Base URL - https://kitsu.io/api/edge
 
 | HTTP Verb | EndPoint | Description |
