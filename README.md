@@ -129,6 +129,7 @@ The user can use this app to get access to lastest manga and anime without any s
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 - A API of Kitsu and Parse
    - Base URL - https://kitsu.io/api/edge
+
 | HTTP Verb | EndPoint | Description |
 | --- | --- | --- |
 | `GET` | /Anime | Get current anime Series |
@@ -140,6 +141,8 @@ The user can use this app to get access to lastest manga and anime without any s
 
 - A API of Parse  
    -base url server - https://parseapi.back4app.com  
+
+
 | HTTP Verb | EndPoint | Description |
 | --- | --- | --- |
 | `GET` | /Users | access user data from the data base authenticate to log in |
