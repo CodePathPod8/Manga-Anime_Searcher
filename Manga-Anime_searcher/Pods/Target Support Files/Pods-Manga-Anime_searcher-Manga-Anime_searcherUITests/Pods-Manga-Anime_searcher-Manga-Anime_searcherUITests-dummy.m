@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests : NSObject
+@end
+@implementation PodsDummy_Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests
+@end

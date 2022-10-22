@@ -1,0 +1,6 @@
+framework module Pods_Manga_Anime_searcher {
+  umbrella header "Pods-Manga-Anime_searcher-umbrella.h"
+
+  export *
+  module * { export * }
+}
