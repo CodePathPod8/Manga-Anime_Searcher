@@ -12,6 +12,7 @@
 		8572BD8C20FA3746671801F6 /* Pods_Manga_Anime_searcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBF3FEFAA2489B3333AED69 /* Pods_Manga_Anime_searcherTests.framework */; };
 		BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */; };
 		BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02C1DB2904B79400DEF387 /* MangaViewController.swift */; };
+		BD02C1DE2904F6E800DEF387 /* ProfileCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */; };
 		BD10078629047722005E915B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10078529047722005E915B /* AppDelegate.swift */; };
 		BD10078829047722005E915B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10078729047722005E915B /* SceneDelegate.swift */; };
 		BD10078D29047722005E915B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD10078B29047722005E915B /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		9D45009C5BBBAEA3BF7ADED1 /* Pods-Manga-Anime_searcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher.release.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher/Pods-Manga-Anime_searcher.release.xcconfig"; sourceTree = "<group>"; };
 		BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
 		BD02C1DB2904B79400DEF387 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
+		BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCamViewController.swift; sourceTree = "<group>"; };
 		BD10078229047722005E915B /* Manga-Anime_searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga-Anime_searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD10078529047722005E915B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD10078729047722005E915B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				BD58A0A32904A53400578AE7 /* SignUpViewController.swift */,
 				BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */,
 				BD02C1DB2904B79400DEF387 /* MangaViewController.swift */,
+				BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */,
 			);
 			path = "Manga-Anime_searcher";
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */,
 				BD10078629047722005E915B /* AppDelegate.swift in Sources */,
 				BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */,
+				BD02C1DE2904F6E800DEF387 /* ProfileCamViewController.swift in Sources */,
 				BD10078829047722005E915B /* SceneDelegate.swift in Sources */,
 				BD1007B82904A0FF005E915B /* HomeFeedViewController.swift in Sources */,
 				BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */,

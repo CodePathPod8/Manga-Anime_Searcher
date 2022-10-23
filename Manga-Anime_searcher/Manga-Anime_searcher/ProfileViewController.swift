@@ -10,10 +10,34 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
+    
+    @IBOutlet weak var profilepicImage: UIImageView!
+    
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    var profiles = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+        
+        let query = PFQuery(className:"ProfilePic")
+        
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground {(profiles,error)in
+            if profiles != nil {
+                self.profiles = profiles!
+//                self.tableView.reloadData()
+            }
+        }
     }
     
 
