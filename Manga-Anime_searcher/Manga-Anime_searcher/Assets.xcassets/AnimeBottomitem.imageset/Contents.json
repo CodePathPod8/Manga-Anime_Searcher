@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "AnimeBottomitem@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "AnimeBottomitem@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

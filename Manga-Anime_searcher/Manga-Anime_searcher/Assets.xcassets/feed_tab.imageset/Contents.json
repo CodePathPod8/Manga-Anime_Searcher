@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MangaBottomitem.png",
+      "filename" : "feed_tab.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MangaBottomitem@2x.png",
+      "filename" : "feed_tab@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MangaBottomitem@3x.png",
+      "filename" : "feed_tab@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

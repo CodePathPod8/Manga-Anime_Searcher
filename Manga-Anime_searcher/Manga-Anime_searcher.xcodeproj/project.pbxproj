@@ -10,6 +10,8 @@
 		2D8DC332BF2F0B31D7C5E61B /* Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757EB9DDC6AC5D75EBCB3494 /* Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework */; };
 		34F941117013259882B4D108 /* Pods_Manga_Anime_searcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */; };
 		8572BD8C20FA3746671801F6 /* Pods_Manga_Anime_searcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBF3FEFAA2489B3333AED69 /* Pods_Manga_Anime_searcherTests.framework */; };
+		BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */; };
+		BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02C1DB2904B79400DEF387 /* MangaViewController.swift */; };
 		BD10078629047722005E915B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10078529047722005E915B /* AppDelegate.swift */; };
 		BD10078829047722005E915B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10078729047722005E915B /* SceneDelegate.swift */; };
 		BD10078D29047722005E915B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD10078B29047722005E915B /* Main.storyboard */; };
@@ -19,6 +21,9 @@
 		BD1007A729047725005E915B /* Manga_Anime_searcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007A629047725005E915B /* Manga_Anime_searcherUITests.swift */; };
 		BD1007A929047725005E915B /* Manga_Anime_searcherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007A829047725005E915B /* Manga_Anime_searcherUITestsLaunchTests.swift */; };
 		BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007B529047BCA005E915B /* LoginViewController.swift */; };
+		BD1007B82904A0FF005E915B /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */; };
+		BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007B92904A22A005E915B /* ProfileViewController.swift */; };
+		BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD58A0A32904A53400578AE7 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,8 @@
 		84BC7B5F65195625F9311FB5 /* Pods-Manga-Anime_searcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher/Pods-Manga-Anime_searcher.debug.xcconfig"; sourceTree = "<group>"; };
 		9D30A7CB6B36F4FDF7875A12 /* Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.release.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D45009C5BBBAEA3BF7ADED1 /* Pods-Manga-Anime_searcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher.release.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher/Pods-Manga-Anime_searcher.release.xcconfig"; sourceTree = "<group>"; };
+		BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
+		BD02C1DB2904B79400DEF387 /* MangaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewController.swift; sourceTree = "<group>"; };
 		BD10078229047722005E915B /* Manga-Anime_searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga-Anime_searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD10078529047722005E915B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD10078729047722005E915B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +66,9 @@
 		BD1007A629047725005E915B /* Manga_Anime_searcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga_Anime_searcherUITests.swift; sourceTree = "<group>"; };
 		BD1007A829047725005E915B /* Manga_Anime_searcherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga_Anime_searcherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BD1007B529047BCA005E915B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		BD1007B92904A22A005E915B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BD58A0A32904A53400578AE7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E878706224AB395012C8DBA9 /* Pods-Manga-Anime_searcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcherTests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcherTests/Pods-Manga-Anime_searcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +146,11 @@
 				BD10079029047725005E915B /* LaunchScreen.storyboard */,
 				BD10079329047725005E915B /* Info.plist */,
 				BD1007B529047BCA005E915B /* LoginViewController.swift */,
+				BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */,
+				BD1007B92904A22A005E915B /* ProfileViewController.swift */,
+				BD58A0A32904A53400578AE7 /* SignUpViewController.swift */,
+				BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */,
+				BD02C1DB2904B79400DEF387 /* MangaViewController.swift */,
 			);
 			path = "Manga-Anime_searcher";
 			sourceTree = "<group>";
@@ -406,9 +421,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
+				BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */,
 				BD10078629047722005E915B /* AppDelegate.swift in Sources */,
+				BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */,
 				BD10078829047722005E915B /* SceneDelegate.swift in Sources */,
+				BD1007B82904A0FF005E915B /* HomeFeedViewController.swift in Sources */,
+				BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CB6LLMVDFJ;
@@ -594,6 +615,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CB6LLMVDFJ;
@@ -623,6 +646,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
