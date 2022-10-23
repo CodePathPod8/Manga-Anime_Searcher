@@ -29,9 +29,19 @@ class SignUpViewController: UIViewController {
         let user = PFUser()
         user.username = usernameField.text
         user.password = passwordField.text
-//          user.email = "email@example.com"
+        user.email = emailField.text
 //          // other fields can be set just like with PFObject
 //          user["phone"] = "415-392-0202"
+        let theuser = usernameField.text
+        let thepw = passwordField.text
+        let theemail = emailField.text
+        
+        if (theuser!.isEmpty || thepw!.isEmpty || theemail!.isEmpty){
+            let alert = UIAlertController(title: "Alert", message: "All fields are required to Sign up", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert,animated: true)
+        }
+        
         user.signUpInBackground { (success, error)in
             if success {
                 self.dismiss(animated: true)
