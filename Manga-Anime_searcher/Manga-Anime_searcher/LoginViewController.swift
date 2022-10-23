@@ -31,8 +31,16 @@ class LoginViewController: UIViewController {
             // Do stuff after successful login.
               self.performSegue(withIdentifier: "loginSegue", sender: nil)
           } else {
+        
+              
+              if (username.isEmpty || password.isEmpty ){
+                  let alert = UIAlertController(title: "Alert", message: "All fields are required to Sign up", preferredStyle: .alert)
+                  alert.addAction(UIAlertAction(title: "OK", style: .default))
+                  self.present(alert,animated: true)
+              }
             // The login failed. Check error to see why.
               print("Error: \(error?.localizedDescription)")
+              
           }
         }
     }
