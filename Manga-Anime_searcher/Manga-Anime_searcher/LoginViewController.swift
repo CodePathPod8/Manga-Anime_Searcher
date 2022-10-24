@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
           if user != nil {
             // Do stuff after successful login.
               self.performSegue(withIdentifier: "loginSegue", sender: nil)
+              
           } else {
         
               

@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var confirmPwField: UITextField!
     
     @IBOutlet weak var emailField: UITextField!
     
@@ -35,6 +36,7 @@ class SignUpViewController: UIViewController {
         let theuser = usernameField.text
         let thepw = passwordField.text
         let theemail = emailField.text
+        let therepeatedPw = confirmPwField.text
         
         if (theuser!.isEmpty || thepw!.isEmpty || theemail!.isEmpty){
             let alert = UIAlertController(title: "Alert", message: "All fields are required to Sign up", preferredStyle: .alert)
@@ -42,11 +44,23 @@ class SignUpViewController: UIViewController {
             present(alert,animated: true)
         }
         
+        if (thepw != therepeatedPw) {
+            let alert = UIAlertController(title: "Alert", message: "Passwords do not Match", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert,animated: true)
+        }
+        
         user.signUpInBackground { (success, error)in
             if success {
+                let alert = UIAlertController(title: "Alert", message: "you have registered", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert,animated: true)
                 self.dismiss(animated: true)
 //                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
+                let alert = UIAlertController(title: "Alert", message: "Something went wrong: \(error?.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try again", style: .default))
+                self.present(alert,animated: true)
                 print("Error: \(error?.localizedDescription)")
             }
             

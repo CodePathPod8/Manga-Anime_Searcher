@@ -51,15 +51,30 @@ class ProfileViewController: UIViewController {
     }
     */
     @IBAction func onLogoutBtn(_ sender: Any) {
-        PFUser.logOut()
-        print("loggedout")
-        let main = UIStoryboard(name: "Main",bundle: nil)
-        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        //creating alert to confirm log out
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .alert)
         
+        present(alert,animated: true)
         
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,let delegate = windowScene.delegate as? SceneDelegate else {return}
+        //creating logout confirmation
+        let confimAction = UIAlertAction(title: "Confirm", style: .default) {
+            (action: UIAlertAction!) in
+            PFUser.logOut()
+            print("loggedout")
+            let main = UIStoryboard(name: "Main",bundle: nil)
+            let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,let delegate = windowScene.delegate as? SceneDelegate else {return}
+            
+            delegate.window?.rootViewController = loginViewController
+        }
+        //creating action to cancel and stay logged in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
-        delegate.window?.rootViewController = loginViewController
+        //adding both action to the alert pop up
+        alert.addAction(confimAction)
+        alert.addAction(cancelAction)
     }
     
 }
