@@ -52,10 +52,15 @@ class SignUpViewController: UIViewController {
         
         user.signUpInBackground { (success, error)in
             if success {
+                
                 let alert = UIAlertController(title: "Alert", message: "you have registered", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert,animated: true)
-                self.dismiss(animated: true)
+                let okAction = UIAlertAction(title: "OK", style: .default) {
+                    (action: UIAlertAction!) in
+                    self.dismiss(animated: true)
+                }
+            
+                alert.addAction(okAction)
 //                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 let alert = UIAlertController(title: "Alert", message: "Something went wrong: \(error?.localizedDescription)", preferredStyle: .alert)
