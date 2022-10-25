@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func dismissKeyboardBtn(_ sender: Any) {
+        print("button was clicked")
         textFieldShouldReturn(usernameField)
         textFieldShouldReturn(passwordField)
         textFieldShouldReturn(confirmPwField)
