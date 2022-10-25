@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var usernameField: UITextField!
     
@@ -16,8 +16,24 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func dismissKeyboardBtn(_ sender: Any) {
+        print("button behind")
+        
+        textFieldShouldReturn(usernameField)
+        textFieldShouldReturn(passwordField)
+    }
+    //making the return from keyboard funtion to make the keyboard disapear
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        return true
     }
     
    

@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBOutlet weak var usernameField: UITextField!
@@ -23,6 +23,22 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func dismissKeyboardBtn(_ sender: Any) {
+        textFieldShouldReturn(usernameField)
+        textFieldShouldReturn(passwordField)
+        textFieldShouldReturn(confirmPwField)
+        textFieldShouldReturn(emailField)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        confirmPwField.resignFirstResponder()
+        emailField.resignFirstResponder()
+        return true
     }
     
 
