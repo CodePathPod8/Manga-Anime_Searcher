@@ -96,7 +96,7 @@ The user can use this app to get access to lastest manga and anime without any s
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![](https://i.imgur.com/Gu0WNTr.gif)
 
 ## Schema 
 [This section will be completed in Unit 9]
