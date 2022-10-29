@@ -15,12 +15,12 @@ The user can use this app to get access to lastest manga and anime without any s
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
-- **Category: Anime and Manga**
-- **Mobile: Iphones**
-- **Story: Analyzes users anime and manga choices, and connects them to world of manga and anime. The user can access to manga and anime of their choice**
-- **Market: Comics**
-- **Habit: This app could be used as often or unoften as the user wanted depending on how deep they are connected to manga and anime world, and what exactly they're looking for in anime and manga**
-- **Scope: All anime and manga lover app**
+- **Category**: Anime and Manga
+- **Mobile**: Iphones
+- **Story**: Analyzes users anime and manga choices, and connects them to world of manga and anime. The user can access to manga and anime of their choice
+- **Market**: Comics
+- **Habit**: This app could be used as often or unoften as the user wanted depending on how deep they are connected to manga and anime world, and what exactly they're looking for in anime and manga
+- **Scope**: All anime and manga lover app
 
 ## Product Spec
 
@@ -42,46 +42,46 @@ The user can use this app to get access to lastest manga and anime without any s
 ### 2. Screen Archetypes
 
 - **Log In Scree**
-   - **SigUp screen**
-   - **Home Screen with navigation bar**
+   - SigUp screen
+   - Home Screen with navigation bar
    
 - **Home Screen**
-   - **Anime Screen**
-   - **Manga Screen**
+   - Anime Screen
+   - Manga Screen
    
 - **Anime Screen**
-   - **Home Screen**
-   - **Manga Screen**
+   - Home Screen
+   - Manga Screen
    
 - **Manga Screen**
-  - **Anime Screen**
-  - **Home Screen**
+  - Anime Screen
+  - Home Screen
    
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-- **LogOut** 
-- **Sign In**
-- **Sign Up**
+- LogOut
+- Sign In
+- Sign Up
 
 **Flow Navigation** (Screen to Screen)
 
 - **LogIn Page**
-   - **Sign Up page**
-   - **or Logged In Page/ Home Page**
+   - Sign Up page
+   - or Logged In Page/ Home Page
 - **Home Page**
-   - **Anime**
-   - **Manga**
+   - Anime
+   - Manga
 - **Anime**
-   - **Particular Anime and its episodes page**
-   - **Back to Home Page**
-   - **Manga page**
+   - Particular Anime and its episodes page
+   - Back to Home Page
+   - Manga page
 - **Manga**
-   - **Particular Manga and its chapters page**
-   - **Back to Home Page**
-   - **Anime page**
+   - Particular Manga and its chapters page
+   - Back to Home Page
+   - Anime page
 
 ## Wireframes
 <img src="https://github.com/CodePathPod8/Manga-Anime_Searcher/blob/main/Screen%20Shot%202022-10-17%20at%209.44.36%20PM.png" width=600>
@@ -146,5 +146,3 @@ The user can use this app to get access to lastest manga and anime without any s
 | `GET` | /Basic Queries | to get data from the Database |
 | `GEt` | /Sessions | keep current user loggedin |
    
-
-
