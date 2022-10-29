@@ -92,6 +92,12 @@ The user can use this app to get access to lastest manga and anime without any s
 ### [BONUS] Interactive Prototype
 ![](https://i.imgur.com/VHUIfVX.gif)
 
+## Build Progres: Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
