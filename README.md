@@ -28,18 +28,15 @@ The user can use this app to get access to lastest manga and anime without any s
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-- **[x]user will be able to log in**
-- **[x]user can signup to create new account**
-- **[]user will be able to see the latest animes and manga**
-- **[]user will be able to have different type of animes genre to pick from.**
-* ...
+- [x] User will be able to log in
+- [x] user can signup to create new account
+- [] User will be able to see the latest animes and manga
+- [] User will be able to have different type of animes genre to pick from.
 
 **Optional Nice-to-have Stories**
 
-
-**[]user is able to watch the anime from the app**
-**user will be able to read manga**
+- [] User is able to watch the anime from the app
+- [] User will be able to read manga
 
 
 ### 2. Screen Archetypes
