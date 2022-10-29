@@ -29,8 +29,8 @@ The user can use this app to get access to lastest manga and anime without any s
 **Required Must-have Stories**
 
 * [fill in your required user stories here]
-- **[]user will be able to log in**
-- **[]user can signup to create new account**
+- **[x]user will be able to log in**
+- **[x]user can signup to create new account**
 - **[]user will be able to see the latest animes and manga**
 - **[]user will be able to have different type of animes genre to pick from.**
 * ...
