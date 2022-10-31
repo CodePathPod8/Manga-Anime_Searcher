@@ -82,7 +82,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             return 330
         }
         else{
-            return 290
+            return 270
         }
     }
 }
