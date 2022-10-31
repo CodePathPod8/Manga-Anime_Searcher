@@ -11,6 +11,7 @@ class Manga_Bigger_Cell: UITableViewCell {
 
     @IBOutlet weak var BiggerImage: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var SmallerImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

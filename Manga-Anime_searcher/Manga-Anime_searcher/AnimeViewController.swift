@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class AnimeViewController: UIViewController {
     var categories = ["", "Popular", "Latest", "", "Action"]
@@ -18,7 +19,33 @@ class AnimeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLogoutBtn(_ sender: Any) {
+        //creating alert to confirm log out
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        
+        present(alert,animated: true)
+        
+        //creating logout confirmation
+        let confimAction = UIAlertAction(title: "Confirm", style: .default) {
+            (action: UIAlertAction!) in
+            PFUser.logOut()
+            print("loggedout")
+            let main = UIStoryboard(name: "Main",bundle: nil)
+            let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+            
+            
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,let delegate = windowScene.delegate as? SceneDelegate else {return}
+            
+            delegate.window?.rootViewController = loginViewController
+        }
+        //creating action to cancel and stay logged in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        //adding both action to the alert pop up
+        alert.addAction(confimAction)
+        alert.addAction(cancelAction)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -30,6 +57,8 @@ class AnimeViewController: UIViewController {
     */
 
 }
+
+
 
 extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
