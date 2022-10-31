@@ -10,8 +10,12 @@ import UIKit
 class BiggerCell: UITableViewCell {
 
     @IBOutlet weak var summary: UILabel!
+    
+    
     @IBOutlet weak var Small_Image: UIImageView!
     @IBOutlet weak var BigImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

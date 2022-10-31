@@ -13,13 +13,17 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profilepicImage: UIImageView!
     
+    @IBOutlet weak var BioTextView: UILabel!
     
+    @IBOutlet weak var bioContentTextView: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
     var profiles = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bioContentTextView.text = "Tell everyone about you"
+        bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
     }
     
