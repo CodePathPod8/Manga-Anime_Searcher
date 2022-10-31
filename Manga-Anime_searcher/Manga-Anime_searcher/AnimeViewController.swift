@@ -8,7 +8,7 @@
 import UIKit
 
 class AnimeViewController: UIViewController {
-    var categories = ["", "Popular", "Latest", "", "Action"]
+    var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     @IBOutlet weak var catagory: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -53,10 +53,10 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.row == 0 || indexPath.row == 3)
         {
-            return 250
+            return 330
         }
         else{
-            return 200
+            return 290
         }
     }
 }
