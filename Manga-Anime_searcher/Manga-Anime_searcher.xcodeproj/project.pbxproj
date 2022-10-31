@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F528D28290F309100DEAFD1 /* AnimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */; };
+		0F528D2A290F407500DEAFD1 /* MainAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D29290F407500DEAFD1 /* MainAnime.swift */; };
+		0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */; };
+		0F528D2E290F521700DEAFD1 /* MangaTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D2D290F521700DEAFD1 /* MangaTableCell.swift */; };
+		0F528D30290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D2F290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift */; };
 		2D8DC332BF2F0B31D7C5E61B /* Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757EB9DDC6AC5D75EBCB3494 /* Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework */; };
 		34F941117013259882B4D108 /* Pods_Manga_Anime_searcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */; };
 		8572BD8C20FA3746671801F6 /* Pods_Manga_Anime_searcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBF3FEFAA2489B3333AED69 /* Pods_Manga_Anime_searcherTests.framework */; };
@@ -46,6 +51,11 @@
 
 /* Begin PBXFileReference section */
 		0E6F1B93B7270ADA1FD42D13 /* Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableCell.swift; sourceTree = "<group>"; };
+		0F528D29290F407500DEAFD1 /* MainAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAnime.swift; sourceTree = "<group>"; };
+		0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerCell.swift; sourceTree = "<group>"; };
+		0F528D2D290F521700DEAFD1 /* MangaTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaTableCell.swift; sourceTree = "<group>"; };
+		0F528D2F290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga_Bigger_Cell.swift; sourceTree = "<group>"; };
 		3AD0F1353A80E77D3EE9F5F8 /* Pods-Manga-Anime_searcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcherTests.release.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcherTests/Pods-Manga-Anime_searcherTests.release.xcconfig"; sourceTree = "<group>"; };
 		757EB9DDC6AC5D75EBCB3494 /* Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcher_Manga_Anime_searcherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBF3FEFAA2489B3333AED69 /* Pods_Manga_Anime_searcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,9 +151,13 @@
 		BD10078429047722005E915B /* Manga-Anime_searcher */ = {
 			isa = PBXGroup;
 			children = (
+				0F528D2F290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift */,
+				0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */,
 				BD10078529047722005E915B /* AppDelegate.swift */,
 				BD10078729047722005E915B /* SceneDelegate.swift */,
 				BD10078B29047722005E915B /* Main.storyboard */,
+				0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */,
+				0F528D29290F407500DEAFD1 /* MainAnime.swift */,
 				BD10078E29047725005E915B /* Assets.xcassets */,
 				BD10079029047725005E915B /* LaunchScreen.storyboard */,
 				BD10079329047725005E915B /* Info.plist */,
@@ -153,6 +167,7 @@
 				BD58A0A32904A53400578AE7 /* SignUpViewController.swift */,
 				BD02C1D92904B38D00DEF387 /* AnimeViewController.swift */,
 				BD02C1DB2904B79400DEF387 /* MangaViewController.swift */,
+				0F528D2D290F521700DEAFD1 /* MangaTableCell.swift */,
 				BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */,
 			);
 			path = "Manga-Anime_searcher";
@@ -427,11 +442,16 @@
 				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
 				BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */,
+				0F528D28290F309100DEAFD1 /* AnimeTableCell.swift in Sources */,
+				0F528D2E290F521700DEAFD1 /* MangaTableCell.swift in Sources */,
 				BD10078629047722005E915B /* AppDelegate.swift in Sources */,
 				BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */,
+				0F528D2A290F407500DEAFD1 /* MainAnime.swift in Sources */,
+				0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */,
 				BD02C1DE2904F6E800DEF387 /* ProfileCamViewController.swift in Sources */,
 				BD10078829047722005E915B /* SceneDelegate.swift in Sources */,
 				BD1007B82904A0FF005E915B /* HomeFeedViewController.swift in Sources */,
+				0F528D30290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift in Sources */,
 				BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
