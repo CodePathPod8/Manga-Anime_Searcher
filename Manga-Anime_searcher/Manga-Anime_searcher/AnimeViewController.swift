@@ -11,13 +11,35 @@ import Parse
 class AnimeViewController: UIViewController {
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     @IBOutlet weak var catagory: UILabel!
+    var Animes = [[String: Any]] ()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+        let url = URL(string: "https://api.jikan.moe/v4/top/anime?=1")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.Animes = dataDictionary["data"] as![[String: Any]]
+                
+                self.tableView.reloadData()
+                print(dataDictionary)
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        task.resume()
+    
+    
+    // Do any additional setup after loading the view.
+}
     
     @IBAction func onLogoutBtn(_ sender: Any) {
         //creating alert to confirm log out

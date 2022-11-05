@@ -7,12 +7,13 @@
 
 import UIKit
 
-class AnimeTableCell: UITableViewCell {
+class AnimeTableCell: UITableViewCell{
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     @IBOutlet weak var catagory: UILabel!
-
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,7 +39,6 @@ class AnimeTableCell: UITableViewCell {
 extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection_cell", for: indexPath)
-    
         return cell
     }
     
@@ -48,4 +48,10 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 return CGSize(width: 149, height: 210)
     }
+}
+class collection_cell: UICollectionViewCell {
+    @IBOutlet weak var AnimeName: UILabel!
+    
+    @IBOutlet weak var AnimeImages: UIImageView!
+    
 }
