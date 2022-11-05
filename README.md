@@ -96,7 +96,9 @@ The user can use this app to get access to lastest manga and anime without any s
 
 Here's a walkthrough of implemented user stories:
 
-![](https://i.imgur.com/Gu0WNTr.gif)
+| Oct. 28, 2022 | Nov. 4, 2022 |
+| --- | --- |
+| ![](https://i.imgur.com/Gu0WNTr.gif) | ![](https://i.imgur.com/tNt2IpK.gif) |
 
 ## Schema 
 [This section will be completed in Unit 9]
