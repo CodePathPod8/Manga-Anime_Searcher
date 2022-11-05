@@ -98,7 +98,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         else{
             var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
-            cell.catagory.text = categories[indexPath.row]
+            cell.catagory.text = categories[indexPath.section]
             cell.AnimesTransferred = Animes
             return cell
         }

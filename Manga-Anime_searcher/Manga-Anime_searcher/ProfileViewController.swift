@@ -38,18 +38,25 @@ class ProfileViewController: UIViewController,ImageUploading {
         bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
         
+        let user = PFUser.current()
+        
+        let imageData = profilepicImage.image!.pngData()
+        let imageFile = PFFileObject(name:"image.png", data:imageData!)
+        
+
+//        var userPhoto = PFObject(className:"User")
+                
+        user?["profileimage"] = imageFile
+//        userPhoto["profileimage"] = imageFile
+        user?.saveInBackground()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let imageData = profilepicImage.image!.pngData()
-        let imageFile = PFFileObject(name:"image.png", data:imageData!)
-
-        var userPhoto = PFObject(className:"User")
-                
-        userPhoto["profileimage"] = imageFile
-        userPhoto.saveInBackground()
+        
+        
+        
         
        
     }
