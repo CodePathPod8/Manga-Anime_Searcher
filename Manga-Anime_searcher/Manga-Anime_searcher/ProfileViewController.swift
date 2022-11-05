@@ -8,8 +8,20 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
-
+protocol ImageUploading {
+    func uploadImage(image: UIImage)
+}
+class ProfileViewController: UIViewController,ImageUploading {
+    func uploadImage(image: UIImage) {
+            profilepicImage.image = image
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let viewController = segue.destination as? ProfileCamViewController{
+                viewController.imageUploader = self
+                
+            }
+        }
     
     @IBOutlet weak var profilepicImage: UIImageView!
     
@@ -25,23 +37,21 @@ class ProfileViewController: UIViewController {
         bioContentTextView.text = "Tell everyone about you"
         bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
+        let imageData = profilepicImage.image!.pngData()
+        let imageFile = PFFileObject(name:"image.png", data:imageData!)
+
+        var userPhoto = PFObject(className:"User")
+                
+        userPhoto["profileimage"] = imageFile
+        userPhoto.saveInBackground()
         
-        let query = PFQuery(className:"ProfilePic")
-        
-        query.includeKey("author")
-        query.limit = 20
-        
-        query.findObjectsInBackground {(profiles,error)in
-            if profiles != nil {
-                self.profiles = profiles!
-//                self.tableView.reloadData()
-            }
-        }
+       
     }
     
 
