@@ -11,7 +11,7 @@ import AlamofireImage
 
 class ProfileCamViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
+    var imageUploader: ImageUploading?
     
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -22,20 +22,22 @@ class ProfileCamViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func onUpdateProfilePicBtn(_ sender: Any) {
-        let profile = PFObject(className: "ProfilePic")
+       
         
-        profile["author"] = PFUser.current()!
+        let user = PFUser.current()
         
         let imageData = profileImageView.image!.pngData()
         let file = PFFileObject(name:"image.png",data: imageData!)
         
-        profile["image"] = file
+        user?["profileimage"] = file
         
-        profile.saveInBackground{
+        user?.saveInBackground{
             (success,error) in
             if success {
+                
                 self.dismiss(animated: true)
                 print("saved!")
+                self.imageUploader?.uploadImage(image: self.profileImageView.image!)
             } else {
                 print("error!")
             }
