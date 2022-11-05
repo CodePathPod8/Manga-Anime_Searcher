@@ -12,6 +12,7 @@ class AnimeViewController: UIViewController {
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     @IBOutlet weak var catagory: UILabel!
     var Animes = [[String: Any]] ()
+
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -84,18 +85,21 @@ class AnimeViewController: UIViewController {
 
 extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return Animes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        var anime = Animes[indexPath.row]
         if(indexPath.row == 0 || indexPath.row == 3)
         {
+           
             var cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
+            cell.summary.text = anime["synopsis"] as? String
             return cell
         }
         else{
             var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
-            cell.catagory.text = categories[indexPath.row] 
+            cell.catagory.text = categories[indexPath.row]
+            cell.AnimesTransferred = Animes
             return cell
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1E00D82917118E0000A91B /* SmallcellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E00D72917118E0000A91B /* SmallcellCollection.swift */; };
 		0F528D28290F309100DEAFD1 /* AnimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */; };
 		0F528D2A290F407500DEAFD1 /* MainAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D29290F407500DEAFD1 /* MainAnime.swift */; };
 		0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		0E6F1B93B7270ADA1FD42D13 /* Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests/Pods-Manga-Anime_searcher-Manga-Anime_searcherUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0F1E00D72917118E0000A91B /* SmallcellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallcellCollection.swift; sourceTree = "<group>"; };
 		0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableCell.swift; sourceTree = "<group>"; };
 		0F528D29290F407500DEAFD1 /* MainAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAnime.swift; sourceTree = "<group>"; };
 		0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerCell.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				BD10079029047725005E915B /* LaunchScreen.storyboard */,
 				BD10079329047725005E915B /* Info.plist */,
 				BD1007B529047BCA005E915B /* LoginViewController.swift */,
+				0F1E00D72917118E0000A91B /* SmallcellCollection.swift */,
 				BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */,
 				BD1007B92904A22A005E915B /* ProfileViewController.swift */,
 				BD58A0A32904A53400578AE7 /* SignUpViewController.swift */,
@@ -441,6 +444,7 @@
 			files = (
 				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
+				0F1E00D82917118E0000A91B /* SmallcellCollection.swift in Sources */,
 				BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */,
 				0F528D28290F309100DEAFD1 /* AnimeTableCell.swift in Sources */,
 				0F528D2E290F521700DEAFD1 /* MangaTableCell.swift in Sources */,

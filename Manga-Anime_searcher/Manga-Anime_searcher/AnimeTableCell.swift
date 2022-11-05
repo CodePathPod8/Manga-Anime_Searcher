@@ -6,13 +6,13 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AnimeTableCell: UITableViewCell{
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var catagory: UILabel!
-    
-    
+    var AnimesTransferred = [[String: Any]] ()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +38,18 @@ class AnimeTableCell: UITableViewCell{
 
 extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection_cell", for: indexPath)
+
+        var Anime = AnimesTransferred[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection_cell", for: indexPath) as? SmallcellCollection else {
+            fatalError("Wrong cell class dequeued")
+        }
+        //let baseUrl = "https://myanimelist.net/anime/genre/57/"
+
+        cell.AnimeName.text = Anime["title"] as? String
+//        let posterUrl = URL(string: baseUrl+cell.AnimeName.text!)
+//
+//        
+//        cell.AnimeImages.af.setImage(withURL: posterUrl!)
         return cell
     }
     
@@ -48,10 +59,4 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 return CGSize(width: 149, height: 210)
     }
-}
-class collection_cell: UICollectionViewCell {
-    @IBOutlet weak var AnimeName: UILabel!
-    
-    @IBOutlet weak var AnimeImages: UIImageView!
-    
 }
