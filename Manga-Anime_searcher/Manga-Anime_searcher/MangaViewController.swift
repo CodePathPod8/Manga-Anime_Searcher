@@ -62,7 +62,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row == 0 || indexPath.row == 3)
+        if(indexPath.row == 0) //|| indexPath.row == 3)
         {
             var cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Bigger_cell") as! Manga_Bigger_Cell
             return cell
@@ -77,7 +77,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.row == 0 || indexPath.row == 3)
+        if(indexPath.row == 0 )//|| indexPath.row == 3)
         {
             return 330
         }

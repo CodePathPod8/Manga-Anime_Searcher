@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class AnimeViewController: UIViewController {
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
@@ -88,16 +89,28 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
         return Animes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var anime = Animes[indexPath.row]
-        if(indexPath.row == 0 || indexPath.row == 3)
+        let anime = Animes[indexPath.row]
+        if(indexPath.row == 0 )//|| indexPath.row == 3)
         {
            
-            var cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
             cell.summary.text = anime["synopsis"] as? String
+            
+            //this should show images in the tableview
+//            let imagepath = anime["images"] as! [[String:Any]]
+//
+//            let jpgImage = imagepath["jpg"] as! [[String:Any]]
+//
+//            let imageurlPath = jpgImage["image_url"] as! String
+//
+//            let animeUrl = URL(string: imageurlPath)
+//
+//            cell.Small_Image.af.setImage(withURL: animeUrl!)
+            
             return cell
         }
         else{
-            var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
             cell.catagory.text = categories[indexPath.section]
             cell.AnimesTransferred = Animes
             return cell
@@ -106,7 +119,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.row == 0 || indexPath.row == 3)
+        if(indexPath.row == 0 )//|| indexPath.row == 3)
         {
             return 330
         }

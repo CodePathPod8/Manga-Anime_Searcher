@@ -38,17 +38,28 @@ class ProfileViewController: UIViewController,ImageUploading {
         bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
         
-        let user = PFUser.current()
-        
-        let imageData = profilepicImage.image!.pngData()
-        let imageFile = PFFileObject(name:"image.png", data:imageData!)
-        
-
-//        var userPhoto = PFObject(className:"User")
-                
-        user?["profileimage"] = imageFile
-//        userPhoto["profileimage"] = imageFile
-        user?.saveInBackground()
+//        let user = PFUser.current()
+//
+//        let imageData = profilepicImage.image!.pngData()
+////        let imageFile = PFFileObject(name:"image.png", data:imageData!)
+////
+////
+////
+//////        var userPhoto = PFObject(className:"User")
+////
+////        user?["profileimage"] = imageFile
+//////        userPhoto["profileimage"] = imageFile
+////        user?.saveInBackground()
+//
+//        let userImageFile = PFFileObject(name:"image.png", data:imageData!)
+//
+//        userImageFile!.getDataInBackground { (imageData: Data?, error: Error?) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let imageData = imageData {
+//                let image = UIImage(data:imageData)
+//            }
+//        }
         
     }
     
@@ -56,8 +67,29 @@ class ProfileViewController: UIViewController,ImageUploading {
         super.viewDidAppear(animated)
         
         
+        let user = PFUser.current()
         
+        let imageData = profilepicImage.image!.pngData()
+//        let imageFile = PFFileObject(name:"image.png", data:imageData!)
+//
+//
+//
+////        var userPhoto = PFObject(className:"User")
+//
+//        user?["profileimage"] = imageFile
+////        userPhoto["profileimage"] = imageFile
+//        user?.saveInBackground()
         
+        let userImageFile = PFFileObject(name:"image.png", data:imageData!)
+        
+        userImageFile?.getDataInBackground { (imageData: Data?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let imageData = imageData {
+                let image = UIImage(data:imageData)
+            }
+        }
+
        
     }
     
