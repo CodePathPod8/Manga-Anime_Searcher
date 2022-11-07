@@ -64,11 +64,11 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
         
         if(indexPath.row == 0) //|| indexPath.row == 3)
         {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Bigger_cell") as! Manga_Bigger_Cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Bigger_cell") as! Manga_Bigger_Cell
             return cell
         }
         else{
-            var cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
             cell.MangaCategory.text = categories[indexPath.row]
             return cell
         }
