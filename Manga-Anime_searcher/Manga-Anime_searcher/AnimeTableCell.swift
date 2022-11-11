@@ -45,15 +45,17 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         }
         //let baseUrl = "https://myanimelist.net/anime/genre/57/"
         
+        //the below code access the images within the Anime dict
         let imagepath = Anime["images"] as! [String:Any]
-//
+        // the below coede access the jpg dict
         let jpgImage = imagepath["jpg"] as! [String:Any]
-        
+        //this access the final level of the dict
         let imageurlPath = jpgImage["small_image_url"] as! String
+        // converting the string into URL
         let imgUrl = URL(string: imageurlPath)
 //            print("this is the url for the pic", imageurlPath)
 //            let animeUrl = URL(string: imageurlPath)
-//
+        // display images
         cell.AnimeImages.af.setImage(withURL:imgUrl!)
 
         cell.AnimeName.text = Anime["title"] as? String
