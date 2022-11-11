@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 protocol ImageUploading {
     func uploadImage(image: UIImage)
@@ -68,27 +69,25 @@ class ProfileViewController: UIViewController,ImageUploading {
         
         
         let user = PFUser.current()
+        //showing the username for the logged user
+        usernameLabel.text = user?.username
         
         let imageData = profilepicImage.image!.pngData()
-//        let imageFile = PFFileObject(name:"image.png", data:imageData!)
-//
-//
-//
-////        var userPhoto = PFObject(className:"User")
-//
-//        user?["profileimage"] = imageFile
-////        userPhoto["profileimage"] = imageFile
-//        user?.saveInBackground()
+
         
         let userImageFile = PFFileObject(name:"image.png", data:imageData!)
+        
+        user?["profileimage"] = userImageFile
         
         userImageFile?.getDataInBackground { (imageData: Data?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else if let imageData = imageData {
                 let image = UIImage(data:imageData)
+                
             }
         }
+        
 
        
     }

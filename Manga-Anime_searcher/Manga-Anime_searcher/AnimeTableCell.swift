@@ -44,6 +44,17 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
             fatalError("Wrong cell class dequeued")
         }
         //let baseUrl = "https://myanimelist.net/anime/genre/57/"
+        
+        let imagepath = Anime["images"] as! [String:Any]
+//
+        let jpgImage = imagepath["jpg"] as! [String:Any]
+        
+        let imageurlPath = jpgImage["small_image_url"] as! String
+        let imgUrl = URL(string: imageurlPath)
+//            print("this is the url for the pic", imageurlPath)
+//            let animeUrl = URL(string: imageurlPath)
+//
+        cell.AnimeImages.af.setImage(withURL:imgUrl!)
 
         cell.AnimeName.text = Anime["title"] as? String
 //        let posterUrl = URL(string: baseUrl+cell.AnimeName.text!)

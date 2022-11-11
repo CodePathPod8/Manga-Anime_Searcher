@@ -96,16 +96,32 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
             cell.summary.text = anime["synopsis"] as? String
             
+            
+            
+//            if let results = anime["images"] as? [String], let jpg = results["jpg"] as! [String] {
+//                for imageurl in jpg{
+//                    print(imageurl["image_url"])
+//                }
+//            }
+                
             //this should show images in the tableview
-//            let imagepath = anime["images"] as! [[String:Any]]
+//            if let image2 = anime["images"] as? String{
+//                print(image2)
+//            }
+//            if let jpg = anime["images.jpg.small_image_url"] as? [String]{
+////                print("this is the small image url ",jpg)
+//            }
+        
+            let imagepath = anime["images"] as! [String:Any]
 //
-//            let jpgImage = imagepath["jpg"] as! [[String:Any]]
-//
-//            let imageurlPath = jpgImage["image_url"] as! String
-//
+            let jpgImage = imagepath["jpg"] as! [String:Any]
+            
+            let imageurlPath = jpgImage["small_image_url"] as! String
+            let imgUrl = URL(string: imageurlPath)
+//            print("this is the url for the pic", imageurlPath)
 //            let animeUrl = URL(string: imageurlPath)
 //
-//            cell.Small_Image.af.setImage(withURL: animeUrl!)
+            cell.Small_Image.af.setImage(withURL:imgUrl!)
             
             return cell
         }
@@ -113,6 +129,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
             cell.catagory.text = categories[indexPath.section]
             cell.AnimesTransferred = Animes
+            
             return cell
         }
     }
