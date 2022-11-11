@@ -101,7 +101,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
 //
             let jpgImage = imagepath["jpg"] as! [String:Any]
             
-            let imageurlPath = jpgImage["image_url"] as! String
+            let imageurlPath = jpgImage["large_image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
 //
             let title = anime["title"] as? String
@@ -114,7 +114,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             // the below coede access the images dict
             let trailerImage = trailerpath["images"] as! [String:Any]
             //this access the final level of the dict
-            let trailerimageurlPath = trailerImage["large_image_url"] as! String
+            let trailerimageurlPath = (trailerImage["large_image_url"] as! String)
             // converting the string into URL
             let trailerimgUrl = URL(string: trailerimageurlPath)
             // display images as backdrop
