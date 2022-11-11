@@ -112,13 +112,20 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             //the below code access the trailer images within the Anime dict
             let trailerpath = anime["trailer"] as! [String:Any]
             // the below coede access the images dict
-            let trailerImage = trailerpath["images"] as! [String:Any]
+            let trailerImage = trailerpath["images"] as? [String:Any]
             //this access the final level of the dict
-            let trailerimageurlPath = (trailerImage["large_image_url"] as! String)
-            // converting the string into URL
-            let trailerimgUrl = URL(string: trailerimageurlPath)
-            // display images as backdrop
-            cell.BigImage.af.setImage(withURL:trailerimgUrl!)
+            if let trailerimageurlPath = (trailerImage!["large_image_url"] as? String){
+                // converting the string into URL
+                let trailerimgUrl = URL(string: trailerimageurlPath)
+                // display images as backdrop
+                cell.BigImage.af.setImage(withURL:trailerimgUrl!)
+            } else {
+                cell.BigImage.image = Image(named: "Searching")
+                //add default image
+            }
+            
+            
+            
             
             return cell
         }
