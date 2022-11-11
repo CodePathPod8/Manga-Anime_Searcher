@@ -23,7 +23,7 @@ class AnimeTableCell: UITableViewCell{
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 10
         let width = collectionView.frame.size.width*2
-        layout.itemSize = CGSize(width: width, height: 300)
+        layout.itemSize = CGSize(width: width, height: 400)
         
 
     }
@@ -50,7 +50,7 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         // the below coede access the jpg dict
         let jpgImage = imagepath["jpg"] as! [String:Any]
         //this access the final level of the dict
-        let imageurlPath = jpgImage["small_image_url"] as! String
+        let imageurlPath = jpgImage["image_url"] as! String
         // converting the string into URL
         let imgUrl = URL(string: imageurlPath)
 //            print("this is the url for the pic", imageurlPath)

@@ -15,6 +15,7 @@ class BiggerCell: UITableViewCell {
     @IBOutlet weak var Small_Image: UIImageView!
     @IBOutlet weak var BigImage: UIImageView!
     
+    @IBOutlet weak var Titles: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

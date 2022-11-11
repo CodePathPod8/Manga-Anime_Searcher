@@ -12,4 +12,6 @@ class SmallcellCollection: UICollectionViewCell {
     @IBOutlet weak var AnimeImages: UIImageView!
     
     @IBOutlet weak var AnimeName: UILabel!
+    
+    
 }

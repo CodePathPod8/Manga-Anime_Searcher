@@ -86,17 +86,15 @@ class AnimeViewController: UIViewController {
 
 extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Animes.count
+        return Animes.count > 5 ? 5 : Animes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let anime = Animes[indexPath.row]
-        if(indexPath.row == 0 )//|| indexPath.row == 3)
+        if(indexPath.row == 0 || indexPath.row == 3)
         {
            
             let cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
             cell.summary.text = anime["synopsis"] as? String
-            
-            
             
 //            if let results = anime["images"] as? [String], let jpg = results["jpg"] as! [String] {
 //                for imageurl in jpg{
@@ -122,13 +120,15 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
 //            let animeUrl = URL(string: imageurlPath)
 //
             cell.Small_Image.af.setImage(withURL:imgUrl!)
+            cell.
             
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
-            cell.catagory.text = categories[indexPath.section]
+            cell.catagory.text = categories[indexPath.row]
             cell.AnimesTransferred = Animes
+            
             
             return cell
         }
@@ -136,12 +136,12 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.row == 0 )//|| indexPath.row == 3)
+        if(indexPath.row == 0 || indexPath.row == 3)
         {
-            return 330
+            return 360
         }
         else{
-            return 270
+            return 300
         }
     }
 }
