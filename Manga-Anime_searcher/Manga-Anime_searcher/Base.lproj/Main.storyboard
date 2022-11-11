@@ -541,16 +541,18 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8C-1K-1H4">
                                                     <rect key="frame" x="26" y="232" width="344" height="79"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-OQ-GG9">
-                                                    <rect key="frame" x="151" y="203" width="41.333333333333343" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-OQ-GG9">
+                                                    <rect key="frame" x="151" y="203.66666666666666" width="211" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Kfe-7h-Sn7" firstAttribute="leading" secondItem="V8S-uJ-rA5" secondAttribute="leadingMargin" constant="17" id="3Cl-8h-h90"/>
                                                 <constraint firstItem="d8C-1K-1H4" firstAttribute="trailing" secondItem="V8S-uJ-rA5" secondAttribute="trailingMargin" id="I4F-SS-7r8"/>
@@ -559,6 +561,7 @@
                                                 <constraint firstItem="jmf-OQ-GG9" firstAttribute="leading" secondItem="Kfe-7h-Sn7" secondAttribute="trailing" constant="8" id="OZi-gU-Qcw"/>
                                                 <constraint firstItem="d8C-1K-1H4" firstAttribute="top" secondItem="Kfe-7h-Sn7" secondAttribute="bottom" constant="8" id="Z5p-a4-sZf"/>
                                                 <constraint firstItem="d8C-1K-1H4" firstAttribute="bottom" secondItem="V8S-uJ-rA5" secondAttribute="bottomMargin" id="eJV-hE-fb9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jmf-OQ-GG9" secondAttribute="trailing" constant="8" id="gQq-2W-dMt"/>
                                                 <constraint firstItem="Kfe-7h-Sn7" firstAttribute="top" secondItem="V8S-uJ-rA5" secondAttribute="topMargin" constant="93" id="lCG-mk-oW8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -584,7 +587,7 @@
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YsQ-H6-YAG">
                                                     <rect key="frame" x="20" y="40" width="350" height="202"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="jw7-f9-gec">
                                                         <size key="itemSize" width="190" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -602,17 +605,19 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1y4-1p-vG5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="166"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwv-Kb-ElG">
                                                                         <rect key="frame" x="12" y="174" width="149" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </collectionViewCellContentView>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <connections>
                                                                 <outlet property="AnimeImages" destination="1y4-1p-vG5" id="ScA-UF-4jT"/>
                                                                 <outlet property="AnimeName" destination="Jwv-Kb-ElG" id="R0Y-uk-eqb"/>
@@ -621,6 +626,7 @@
                                                     </cells>
                                                 </collectionView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="YsQ-H6-YAG" firstAttribute="top" secondItem="JS8-gH-6yw" secondAttribute="topMargin" constant="29" id="8fI-uW-oV6"/>
                                                 <constraint firstItem="YsQ-H6-YAG" firstAttribute="bottom" secondItem="JS8-gH-6yw" secondAttribute="bottomMargin" id="TMC-ly-fWX"/>
@@ -643,7 +649,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uqd-Rt-swE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Animes" id="35l-4j-DEc">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="0ze-65-NiW">

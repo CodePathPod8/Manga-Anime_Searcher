@@ -114,13 +114,14 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
 //
             let jpgImage = imagepath["jpg"] as! [String:Any]
             
-            let imageurlPath = jpgImage["small_image_url"] as! String
+            let imageurlPath = jpgImage["image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
 //            print("this is the url for the pic", imageurlPath)
 //            let animeUrl = URL(string: imageurlPath)
 //
+            let title = anime["title"] as? String
             cell.Small_Image.af.setImage(withURL:imgUrl!)
-            cell.
+            cell.Titles.text = title
             
             return cell
         }

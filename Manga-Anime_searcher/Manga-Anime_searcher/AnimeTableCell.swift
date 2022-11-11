@@ -50,7 +50,7 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         // the below coede access the jpg dict
         let jpgImage = imagepath["jpg"] as! [String:Any]
         //this access the final level of the dict
-        let imageurlPath = jpgImage["image_url"] as! String
+        let imageurlPath = jpgImage["large_image_url"] as! String
         // converting the string into URL
         let imgUrl = URL(string: imageurlPath)
 //            print("this is the url for the pic", imageurlPath)
