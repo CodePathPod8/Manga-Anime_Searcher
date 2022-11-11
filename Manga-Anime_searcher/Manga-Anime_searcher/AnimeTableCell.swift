@@ -53,16 +53,11 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         let imageurlPath = jpgImage["large_image_url"] as! String
         // converting the string into URL
         let imgUrl = URL(string: imageurlPath)
-//            print("this is the url for the pic", imageurlPath)
-//            let animeUrl = URL(string: imageurlPath)
         // display images
         cell.AnimeImages.af.setImage(withURL:imgUrl!)
 
         cell.AnimeName.text = Anime["title"] as? String
-//        let posterUrl = URL(string: baseUrl+cell.AnimeName.text!)
-//
-//        
-//        cell.AnimeImages.af.setImage(withURL: posterUrl!)
+
         return cell
     }
     

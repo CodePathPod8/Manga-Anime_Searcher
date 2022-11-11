@@ -96,19 +96,6 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "BiggerCell") as! BiggerCell
             cell.summary.text = anime["synopsis"] as? String
             
-//            if let results = anime["images"] as? [String], let jpg = results["jpg"] as! [String] {
-//                for imageurl in jpg{
-//                    print(imageurl["image_url"])
-//                }
-//            }
-                
-            //this should show images in the tableview
-//            if let image2 = anime["images"] as? String{
-//                print(image2)
-//            }
-//            if let jpg = anime["images.jpg.small_image_url"] as? [String]{
-////                print("this is the small image url ",jpg)
-//            }
         
             let imagepath = anime["images"] as! [String:Any]
 //
@@ -116,12 +103,22 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             
             let imageurlPath = jpgImage["image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
-//            print("this is the url for the pic", imageurlPath)
-//            let animeUrl = URL(string: imageurlPath)
 //
             let title = anime["title"] as? String
             cell.Small_Image.af.setImage(withURL:imgUrl!)
             cell.Titles.text = title
+            
+            
+            //the below code access the trailer images within the Anime dict
+            let trailerpath = anime["trailer"] as! [String:Any]
+            // the below coede access the images dict
+            let trailerImage = trailerpath["images"] as! [String:Any]
+            //this access the final level of the dict
+            let trailerimageurlPath = trailerImage["large_image_url"] as! String
+            // converting the string into URL
+            let trailerimgUrl = URL(string: trailerimageurlPath)
+            // display images as backdrop
+            cell.BigImage.af.setImage(withURL:trailerimgUrl!)
             
             return cell
         }
