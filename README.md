@@ -32,6 +32,7 @@ The user can use this app to get access to lastest manga and anime without any s
 - [x] user can signup to create new account
 - [x] User will be able to see the latest animes and manga
 - [x] User will be able to have different type of animes genre to pick from.
+- [x] User can see Different genre of Manga and Anime
 
 **Optional Nice-to-have Stories**
 
