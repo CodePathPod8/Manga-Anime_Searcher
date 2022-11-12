@@ -12,6 +12,8 @@ class MangaViewController: UIViewController {
     var categories = ["", "Popular Manga", "Latest Manga", "", "Action Manga"]
 
     @IBOutlet weak var MangaTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
