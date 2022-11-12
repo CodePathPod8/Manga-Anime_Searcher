@@ -133,7 +133,7 @@ Here's a walkthrough of implemented user stories:
    - show popular animes right now 
 
 - An API of Kitsu
-   - Base URL - https://kitsu.io/api/edge
+   - Base URL - [jikanApi](https://docs.api.jikan.moe/)
 
 | HTTP Verb | EndPoint | Description |
 | --- | --- | --- |
