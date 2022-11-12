@@ -134,6 +134,10 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.catagory.text = categories[indexPath.row]
             cell.AnimesTransferred = Animes
             
+//            cell.didSelectClosure = { tabindex, colindex in
+//                if let tabindex = tabindex, let colindex = colindex
+//                
+//            }
             
             return cell
         }

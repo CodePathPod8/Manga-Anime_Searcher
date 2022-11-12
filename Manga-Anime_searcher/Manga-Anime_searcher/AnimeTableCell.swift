@@ -8,11 +8,16 @@
 import UIKit
 import AlamofireImage
 
+typealias DidSelectClosure = ((_ tableIndex: Int?,_ collectionIndex: Int?) -> Void)
+
 class AnimeTableCell: UITableViewCell{
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var catagory: UILabel!
     var AnimesTransferred = [[String: Any]] ()
+    var index: Int?
+    var didSelectClosure: DidSelectClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,4 +72,9 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 return CGSize(width: 149, height: 210)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectClosure?(index,indexPath.row)
+    }
+    
 }

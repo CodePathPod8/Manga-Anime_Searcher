@@ -660,11 +660,27 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mfO-Zv-737" id="iOF-ES-O1n"/>
+                        <segue destination="Psw-v6-MWK" kind="presentation" id="hHT-3Q-VyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9v-2L-v6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1002" y="1419"/>
+        </scene>
+        <!--Anime DetailVC-->
+        <scene sceneID="fjN-se-E2g">
+            <objects>
+                <viewController storyboardIdentifier="AnimeDetailVC" id="Psw-v6-MWK" customClass="AnimeDetailVC" customModule="Manga_Anime_searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S1D-is-V35">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VUP-qh-bGg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcv-cV-Lt5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="2119"/>
         </scene>
         <!--Anime-->
         <scene sceneID="eXS-xe-3Ou">
