@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MangaTableCell: UITableViewCell {
 
@@ -13,6 +14,9 @@ class MangaTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MangaCategory: UILabel!
+    
+    var mangaTransferred = [[String:Any]] ()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,7 +37,22 @@ class MangaTableCell: UITableViewCell {
 }
 extension MangaTableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Manga_Collection_cell", for: indexPath)
+        let manga = mangaTransferred[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Manga_Collection_cell", for: indexPath) as? MangasmalCollectionCell else {
+            fatalError("Wrong cell class dequeueed for manga")
+        }
+        //the below code access the images within the Anime dict
+        let imagepath = manga["images"] as! [String:Any]
+        // the below coede access the jpg dict
+        let jpgImage = imagepath["jpg"] as! [String:Any]
+        //this access the final level of the dict
+        let imageurlPath = jpgImage["large_image_url"] as! String
+        // converting the string into URL
+        let imgUrl = URL(string: imageurlPath)
+        // display images
+        cell.mangaImage.af.setImage(withURL:imgUrl!)
+
+        cell.mangaTitleLabel.text = manga["title"] as? String
     
         return cell
     }
