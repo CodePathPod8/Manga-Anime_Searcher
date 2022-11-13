@@ -10,9 +10,11 @@ import Parse
 import AlamofireImage
 
 class AnimeViewController: UIViewController {
-    var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
+    var categories = ["", "Popular Anime", "Latest Anime", "", "Upcoming Anime"]
     @IBOutlet weak var catagory: UILabel!
     var Animes = [[String: Any]] ()
+    var latest = [[String: Any]] ()
+    var upcoming = [[String: Any]] ()
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -38,6 +40,47 @@ class AnimeViewController: UIViewController {
             }
         }
         task.resume()
+        let urls = URL(string: "https://api.jikan.moe/v4/seasons/2022/fall")!
+        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.latest = dataDictionary["data"] as![[String: Any]]
+                
+                self.tableView.reloadData()
+                print(dataDictionary)
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        tasks.resume()
+        let urls2 = URL(string: "https://api.jikan.moe/v4/seasons/upcoming")!
+        let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks2 = sessions2.dataTask(with: requests2) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.upcoming = dataDictionary["data"] as![[String: Any]]
+                
+                self.tableView.reloadData()
+                print(dataDictionary)
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        tasks2.resume()
+        
     
     
     // Do any additional setup after loading the view.
@@ -146,6 +189,14 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
             cell.catagory.text = categories[indexPath.row]
             cell.AnimesTransferred = Animes
+            if(indexPath.row == 2)
+            {
+                cell.AnimesTransferred = latest
+            }
+            else if(indexPath.row == 4)
+            {
+                cell.AnimesTransferred = upcoming
+            }
             
             cell.index = indexPath.row
             cell.onClickSeeAllClosure = {
