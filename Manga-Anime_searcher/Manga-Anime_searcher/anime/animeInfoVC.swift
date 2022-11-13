@@ -1,26 +1,25 @@
 //
-//  AnimeDetailVC.swift
+//  animeInfoVC.swift
 //  Manga-Anime_searcher
 //
-//  Created by Yunior Sanchez on 11/12/22.
+//  Created by Yunior Sanchez on 11/13/22.
 //
 
 import UIKit
-import AlamofireImage
 
-class AnimeDetailListVC: UIViewController {
+class animeInfoVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     
-    @IBOutlet weak var animeListTableview: UITableView!
+    @IBOutlet weak var infoTableview: UITableView!
     
-    var animes = [[String: Any]] ()
+    
+    var anime = [[String: Any]] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        infoTableview.dataSource = self
         let url = URL(string: "https://api.jikan.moe/v4/top/anime?=1")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -31,54 +30,55 @@ class AnimeDetailListVC: UIViewController {
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                self.animes = dataDictionary["data"] as![[String: Any]]
+                self.anime = dataDictionary["data"] as![[String: Any]]
                 
                 
-                self.animeListTableview.reloadData()
-                print(dataDictionary,"this is from detail viewcontroller")
+                self.infoTableview.reloadData()
+                print(dataDictionary,"this is from info viewcontroller")
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
             }
         }
         task.resume()
-        // Do any additional setup after loading the view.
-        
-    }
 
-   
+        // Do any additional setup after loading the view.
+    }
+    
+
+
+
 }
 
-extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
+extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animes.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let anime = animes[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeListCell") as? AnimeListCell else {
+        
+        let animes = anime[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeListCel") as? AnimeListCell else {
             return UITableViewCell()
         }
+        cell.sypnosisLabel.text = animes["synopsis"] as? String
         
-        cell.sypnosisLabel.text = anime["synopsis"] as? String
-        
-        let imagepath = anime["images"] as! [String:Any]
+        let imagepath = animes["images"] as! [String:Any]
 //
         let jpgImage = imagepath["jpg"] as! [String:Any]
         
         let imageurlPath = jpgImage["large_image_url"] as! String
         let imgUrl = URL(string: imageurlPath)
 //
-        let title = anime["title"] as? String
+        let title = animes["title"] as? String
         cell.animeImage.af.setImage(withURL:imgUrl!)
         cell.animeTitleLabel.text = title
         
-        cell.epidNumLabel.text = anime["episodes"] as? String
+        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        cell.ratingLabel.text = anime["rating"] as? String
+        cell.ratingLabel.text = animes["rating"] as? String
         navigationItem.title = categories[indexPath.row]
-        
-        
         return cell
     }
     

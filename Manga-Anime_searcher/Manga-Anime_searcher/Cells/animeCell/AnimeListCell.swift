@@ -9,13 +9,18 @@ import UIKit
 
 class AnimeListCell: UITableViewCell {
 
+    
+    @IBOutlet weak var backdropImag: UIImageView!
+    
     @IBOutlet weak var animeImage: UIImageView!
     @IBOutlet weak var animeTitleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var sypnosisLabel: UILabel!
     @IBOutlet weak var epidNumLabel: UILabel!
     
+    @IBOutlet weak var backdropImageview: UIImageView!
     
+    @IBOutlet weak var rankingLabel: UILabel!
     
     
     override func awakeFromNib() {
