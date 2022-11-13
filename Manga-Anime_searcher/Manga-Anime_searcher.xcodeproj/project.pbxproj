@@ -32,7 +32,8 @@
 		BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1007B92904A22A005E915B /* ProfileViewController.swift */; };
 		BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD58A0A32904A53400578AE7 /* SignUpViewController.swift */; };
 		BD9845C6291F4D1A00151351 /* MangasmalCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */; };
-		BD9845C8291FB54D00151351 /* AnimeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C7291FB54D00151351 /* AnimeDetailVC.swift */; };
+		BD9845C8291FB54D00151351 /* AnimeDetailListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */; };
+		BD9845CA2920994700151351 /* AnimeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C92920994700151351 /* AnimeListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +87,8 @@
 		BD1007B92904A22A005E915B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BD58A0A32904A53400578AE7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasmalCollectionCell.swift; sourceTree = "<group>"; };
-		BD9845C7291FB54D00151351 /* AnimeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailVC.swift; sourceTree = "<group>"; };
+		BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailListVC.swift; sourceTree = "<group>"; };
+		BD9845C92920994700151351 /* AnimeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCell.swift; sourceTree = "<group>"; };
 		D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E878706224AB395012C8DBA9 /* Pods-Manga-Anime_searcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcherTests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcherTests/Pods-Manga-Anime_searcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,7 +179,8 @@
 				0F528D2D290F521700DEAFD1 /* MangaTableCell.swift */,
 				BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */,
 				BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */,
-				BD9845C7291FB54D00151351 /* AnimeDetailVC.swift */,
+				BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */,
+				BD9845C92920994700151351 /* AnimeListCell.swift */,
 			);
 			path = "Manga-Anime_searcher";
 			sourceTree = "<group>";
@@ -451,7 +454,7 @@
 				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
 				0F1E00D82917118E0000A91B /* SmallcellCollection.swift in Sources */,
-				BD9845C8291FB54D00151351 /* AnimeDetailVC.swift in Sources */,
+				BD9845C8291FB54D00151351 /* AnimeDetailListVC.swift in Sources */,
 				BD02C1DA2904B38D00DEF387 /* AnimeViewController.swift in Sources */,
 				0F528D28290F309100DEAFD1 /* AnimeTableCell.swift in Sources */,
 				BD9845C6291F4D1A00151351 /* MangasmalCollectionCell.swift in Sources */,
@@ -462,6 +465,7 @@
 				0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */,
 				BD02C1DE2904F6E800DEF387 /* ProfileCamViewController.swift in Sources */,
 				BD10078829047722005E915B /* SceneDelegate.swift in Sources */,
+				BD9845CA2920994700151351 /* AnimeListCell.swift in Sources */,
 				BD1007B82904A0FF005E915B /* HomeFeedViewController.swift in Sources */,
 				0F528D30290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift in Sources */,
 				BD02C1DC2904B79400DEF387 /* MangaViewController.swift in Sources */,

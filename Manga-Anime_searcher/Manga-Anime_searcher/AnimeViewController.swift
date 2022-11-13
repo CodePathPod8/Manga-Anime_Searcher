@@ -43,6 +43,9 @@ class AnimeViewController: UIViewController {
     // Do any additional setup after loading the view.
 }
     
+   
+    
+    
     @IBAction func onLogoutBtn(_ sender: Any) {
         //creating alert to confirm log out
         let alert = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .alert)
@@ -80,6 +83,15 @@ class AnimeViewController: UIViewController {
     }
     */
 
+    func moveOnAnimeList(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {
+            return
+        }
+        vc.animes = [Animes[index]]
+        
+//        vc.categories = [categories[index]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 
@@ -109,6 +121,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.Titles.text = title
             
             
+            
             //the below code access the trailer images within the Anime dict
             let trailerpath = anime["trailer"] as! [String:Any]
             // the below coede access the images dict
@@ -134,9 +147,16 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.catagory.text = categories[indexPath.row]
             cell.AnimesTransferred = Animes
             
+            cell.index = indexPath.row
+            cell.onClickSeeAllClosure = {
+                index in
+                if let indexp = index {
+                    self.moveOnAnimeList(index: indexp)
+                }
+            }
 //            cell.didSelectClosure = { tabindex, colindex in
 //                if let tabindex = tabindex, let colindex = colindex
-//                
+//
 //            }
             
             return cell

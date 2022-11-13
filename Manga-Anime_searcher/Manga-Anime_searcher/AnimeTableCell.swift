@@ -9,14 +9,19 @@ import UIKit
 import AlamofireImage
 
 typealias DidSelectClosure = ((_ tableIndex: Int?,_ collectionIndex: Int?) -> Void)
-
+typealias SeeAllClosure = ((_ tableIndex: Int?) -> Void)
 class AnimeTableCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
+
     
     @IBOutlet weak var catagory: UILabel!
+    
     var AnimesTransferred = [[String: Any]] ()
+    
+    
     var index: Int?
+    var onClickSeeAllClosure: SeeAllClosure?
     var didSelectClosure: DidSelectClosure?
     
     override func awakeFromNib() {
@@ -32,7 +37,13 @@ class AnimeTableCell: UITableViewCell{
         
 
     }
-
+    
+    
+    @IBAction func onClickSeeAll(_ sender: Any) {
+       onClickSeeAllClosure?(index)
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -70,8 +81,10 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         return 7
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-return CGSize(width: 149, height: 210)
+        
+        return CGSize(width: 149, height: 210)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelectClosure?(index,indexPath.row)
