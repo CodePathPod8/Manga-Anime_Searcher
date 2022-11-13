@@ -135,6 +135,17 @@ class AnimeViewController: UIViewController {
 //        vc.categories = [categories[index]]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func moveOnAnimeInfo(tindex: Int,cindex: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
+            return
+        }
+        vc.anime = [Animes[tindex]]
+        
+//        vc.categories = [categories[index]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 
@@ -205,10 +216,12 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
                     self.moveOnAnimeList(index: indexp)
                 }
             }
-//            cell.didSelectClosure = { tabindex, colindex in
-//                if let tabindex = tabindex, let colindex = colindex
-//
-//            }
+            cell.didSelectClosure = { tabindex, colindex in
+                if let tabindex = tabindex, let colindex = colindex {
+                    self.moveOnAnimeInfo(tindex: tabindex, cindex: colindex)
+                }
+
+            }
             
             return cell
         }
