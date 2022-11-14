@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class animeInfoVC: UIViewController {
 
@@ -30,7 +31,7 @@ class animeInfoVC: UIViewController {
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                self.anime = dataDictionary["data"] as![[String: Any]]
+                self.anime = dataDictionary["data"] as! [[String: Any]]
                 
                 
                 self.infoTableview.reloadData()
@@ -59,7 +60,7 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         
         let animes = anime[indexPath.row]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeListCel") as? AnimeListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "animeInfoCell") as? animeInfoCell else {
             return UITableViewCell()
         }
         cell.sypnosisLabel.text = animes["synopsis"] as? String
@@ -67,18 +68,37 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         let imagepath = animes["images"] as! [String:Any]
 //
         let jpgImage = imagepath["jpg"] as! [String:Any]
-        
+        print(jpgImage,"prtting in the other vc")
         let imageurlPath = jpgImage["large_image_url"] as! String
         let imgUrl = URL(string: imageurlPath)
+        
+        //the below code access the trailer images within the Anime dict
+        let trailerpath = animes["trailer"] as! [String:Any]
+        // the below coede access the images dict
+        let trailerImage = trailerpath["images"] as? [String:Any]
+        //this access the final level of the dict
+        if let trailerimageurlPath = (trailerImage!["large_image_url"] as? String){
+            // converting the string into URL
+            let trailerimgUrl = URL(string: trailerimageurlPath)
+            // display images as backdrop
+            cell.backdropimage.af.setImage(withURL:trailerimgUrl!)
+        } else {
+            cell.backdropimage.image = Image(named: "Searching")
+            //add default image
+        }
+        
+        
+        
 //
         let title = animes["title"] as? String
-        cell.animeImage.af.setImage(withURL:imgUrl!)
-        cell.animeTitleLabel.text = title
+        cell.animeimage.af.setImage(withURL:imgUrl!)
+        cell.anititleLabel.text = title
         
-        cell.epidNumLabel.text = animes["episodes"] as? String
+//        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        cell.ratingLabel.text = animes["rating"] as? String
+        cell.rankingLabel.text = animes["rating"] as? String
         navigationItem.title = categories[indexPath.row]
+        
         return cell
     }
     

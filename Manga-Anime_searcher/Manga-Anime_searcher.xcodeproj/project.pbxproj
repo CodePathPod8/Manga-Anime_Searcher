@@ -35,6 +35,7 @@
 		BD9845C8291FB54D00151351 /* AnimeDetailListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */; };
 		BD9845CA2920994700151351 /* AnimeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C92920994700151351 /* AnimeListCell.swift */; };
 		BD9845CF29213F3200151351 /* animeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845CE29213F3200151351 /* animeInfoVC.swift */; };
+		BD9845D1292278F500151351 /* animeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845D0292278F500151351 /* animeInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailListVC.swift; sourceTree = "<group>"; };
 		BD9845C92920994700151351 /* AnimeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListCell.swift; sourceTree = "<group>"; };
 		BD9845CE29213F3200151351 /* animeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animeInfoVC.swift; sourceTree = "<group>"; };
+		BD9845D0292278F500151351 /* animeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animeInfoCell.swift; sourceTree = "<group>"; };
 		D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E878706224AB395012C8DBA9 /* Pods-Manga-Anime_searcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcherTests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcherTests/Pods-Manga-Anime_searcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,6 +227,7 @@
 				0F1E00D72917118E0000A91B /* SmallcellCollection.swift */,
 				0F528D2B290F423E00DEAFD1 /* BiggerCell.swift */,
 				0F528D27290F309100DEAFD1 /* AnimeTableCell.swift */,
+				BD9845D0292278F500151351 /* animeInfoCell.swift */,
 			);
 			path = animeCell;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD9845D1292278F500151351 /* animeInfoCell.swift in Sources */,
 				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
 				0F1E00D82917118E0000A91B /* SmallcellCollection.swift in Sources */,

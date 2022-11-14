@@ -15,6 +15,7 @@ class AnimeDetailListVC: UIViewController {
     @IBOutlet weak var animeListTableview: UITableView!
     
     var animes = [[String: Any]] ()
+    var latest = [[String: Any]] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class AnimeDetailListVC: UIViewController {
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                self.animes = dataDictionary["data"] as![[String: Any]]
+                self.animes = dataDictionary["data"] as! [[String: Any]]
                 
                 
                 self.animeListTableview.reloadData()
@@ -44,6 +45,27 @@ class AnimeDetailListVC: UIViewController {
         }
         task.resume()
         // Do any additional setup after loading the view.
+        //latest animes
+        let urls = URL(string: "https://api.jikan.moe/v4/seasons/2022/fall")!
+        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.latest = dataDictionary["data"] as![[String: Any]]
+                
+                self.animeListTableview.reloadData()
+                print(dataDictionary,"this are the latest anime")
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        tasks.resume()
         
     }
 
