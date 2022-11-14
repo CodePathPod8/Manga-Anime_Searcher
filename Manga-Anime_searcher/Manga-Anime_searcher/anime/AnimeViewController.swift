@@ -130,6 +130,12 @@ class AnimeViewController: UIViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {
             return
         }
+        //trying to make it so the see all loads the data from the different enpoints
+//        if let anime = vc {
+//            anime.animes = [Animes[index]]
+//        } else if let latest = vc {
+//            latest.latest = [latest[index]]
+//        }
         vc.animes = [Animes[index]]
         
 //        vc.categories = [categories[index]]
@@ -142,7 +148,6 @@ class AnimeViewController: UIViewController {
         }
         vc.anime = [Animes[tindex]]
         
-//        vc.categories = [categories[index]]
         navigationController?.pushViewController(vc, animated: true)
     }
     

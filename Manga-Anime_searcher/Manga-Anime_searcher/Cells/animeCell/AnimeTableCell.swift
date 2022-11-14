@@ -8,6 +8,8 @@
 import UIKit
 import AlamofireImage
 
+
+//the two alias below are use to display the the items when the see all btn is click and when then item inside the collection view is clicked
 typealias DidSelectClosure = ((_ tableIndex: Int?,_ collectionIndex: Int?) -> Void)
 typealias SeeAllClosure = ((_ tableIndex: Int?) -> Void)
 class AnimeTableCell: UITableViewCell{
@@ -38,7 +40,7 @@ class AnimeTableCell: UITableViewCell{
 
     }
     
-    
+    //this is the btn See All
     @IBAction func onClickSeeAll(_ sender: Any) {
        onClickSeeAllClosure?(index)
         
@@ -55,12 +57,10 @@ class AnimeTableCell: UITableViewCell{
 extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        var Anime = AnimesTransferred[indexPath.item]
+        let Anime = AnimesTransferred[indexPath.item]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Collection_cell", for: indexPath) as? SmallcellCollection else {
             fatalError("Wrong cell class dequeued")
         }
-        //let baseUrl = "https://myanimelist.net/anime/genre/57/"
-        
         //the below code access the images within the Anime dict
         let imagepath = Anime["images"] as! [String:Any]
         // the below coede access the jpg dict
@@ -87,6 +87,8 @@ extension AnimeTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // this is use when the item inside the collection view is click to display the specific item, this needs further improvement
+        
         didSelectClosure?(index,indexPath.row)
     }
     

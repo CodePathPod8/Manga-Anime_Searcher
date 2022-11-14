@@ -3,7 +3,7 @@
 //  Manga-Anime_searcher
 //
 //  Created by Yunior Sanchez on 11/12/22.
-//
+//this is the VC to display the full list of latest,upcoming and popular animes
 
 import UIKit
 import AlamofireImage
@@ -12,6 +12,7 @@ class AnimeDetailListVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     
+    //below is the tableview connectiong
     @IBOutlet weak var animeListTableview: UITableView!
     
     var animes = [[String: Any]] ()
@@ -20,6 +21,7 @@ class AnimeDetailListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //delegate is used to allow the click on the item and datasource loads the data in the tableview
         animeListTableview.delegate = self
         animeListTableview.dataSource = self
         
@@ -37,10 +39,9 @@ class AnimeDetailListVC: UIViewController {
                 
                 
                 self.animeListTableview.reloadData()
+                //the additional comment was added to help debug
                 print(dataDictionary,"this is from detail viewcontroller")
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+                
             }
         }
         task.resume()
@@ -106,6 +107,7 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    //the below is used so that when one of the item list is clicked it sends to the next VC where it display further info about that item.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
             return
