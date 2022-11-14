@@ -21,27 +21,6 @@ class animeInfoVC: UIViewController {
         super.viewDidLoad()
         
         infoTableview.dataSource = self
-        let url = URL(string: "https://api.jikan.moe/v4/top/anime?=1")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                self.anime = dataDictionary["data"] as! [[String: Any]]
-                
-                
-                self.infoTableview.reloadData()
-                print(dataDictionary,"this is from info viewcontroller")
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
-            }
-        }
-        task.resume()
 
         // Do any additional setup after loading the view.
     }
