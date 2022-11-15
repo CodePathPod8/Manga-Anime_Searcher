@@ -37,6 +37,8 @@
 		BD9845D1292278F500151351 /* animeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845D0292278F500151351 /* animeInfoCell.swift */; };
 		BD9845D52922DD3E00151351 /* MangaDetailListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845D42922DD3E00151351 /* MangaDetailListVC.swift */; };
 		BD9845D72922DD8A00151351 /* MangaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845D62922DD8A00151351 /* MangaListCell.swift */; };
+		BD9845D9292328AE00151351 /* MangaInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845D8292328AE00151351 /* MangaInfoVC.swift */; };
+		BD9845DB292328FB00151351 /* mangaInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845DA292328FB00151351 /* mangaInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		BD9845D0292278F500151351 /* animeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animeInfoCell.swift; sourceTree = "<group>"; };
 		BD9845D42922DD3E00151351 /* MangaDetailListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDetailListVC.swift; sourceTree = "<group>"; };
 		BD9845D62922DD8A00151351 /* MangaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaListCell.swift; sourceTree = "<group>"; };
+		BD9845D8292328AE00151351 /* MangaInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaInfoVC.swift; sourceTree = "<group>"; };
+		BD9845DA292328FB00151351 /* mangaInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mangaInfoCell.swift; sourceTree = "<group>"; };
 		D927E5210DA3B6E932575C8E /* Pods_Manga_Anime_searcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Manga_Anime_searcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E878706224AB395012C8DBA9 /* Pods-Manga-Anime_searcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Manga-Anime_searcherTests.debug.xcconfig"; path = "Target Support Files/Pods-Manga-Anime_searcherTests/Pods-Manga-Anime_searcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +242,7 @@
 				0F528D2F290F53CC00DEAFD1 /* Manga_Bigger_Cell.swift */,
 				BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */,
 				BD9845D62922DD8A00151351 /* MangaListCell.swift */,
+				BD9845DA292328FB00151351 /* mangaInfoCell.swift */,
 			);
 			path = mangaCells;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			children = (
 				BD02C1DB2904B79400DEF387 /* MangaViewController.swift */,
 				BD9845D42922DD3E00151351 /* MangaDetailListVC.swift */,
+				BD9845D8292328AE00151351 /* MangaInfoVC.swift */,
 			);
 			path = manga;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD9845D1292278F500151351 /* animeInfoCell.swift in Sources */,
+				BD9845DB292328FB00151351 /* mangaInfoCell.swift in Sources */,
 				BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */,
 				BD1007B629047BCA005E915B /* LoginViewController.swift in Sources */,
 				0F1E00D82917118E0000A91B /* SmallcellCollection.swift in Sources */,
@@ -511,6 +518,7 @@
 				0F528D2E290F521700DEAFD1 /* MangaTableCell.swift in Sources */,
 				BD10078629047722005E915B /* AppDelegate.swift in Sources */,
 				BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */,
+				BD9845D9292328AE00151351 /* MangaInfoVC.swift in Sources */,
 				BD9845D72922DD8A00151351 /* MangaListCell.swift in Sources */,
 				0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */,
 				BD02C1DE2904F6E800DEF387 /* ProfileCamViewController.swift in Sources */,

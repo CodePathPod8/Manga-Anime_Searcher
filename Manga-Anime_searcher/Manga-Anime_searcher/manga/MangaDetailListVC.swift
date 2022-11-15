@@ -86,9 +86,13 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     //the below is used so that when one of the item list is clicked it sends to the next VC where it display further info about that item.
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaInfoVC") as? MangaInfoVC else {
+            return
+        }
+        vc.manga = [mangas[indexPath.row]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }

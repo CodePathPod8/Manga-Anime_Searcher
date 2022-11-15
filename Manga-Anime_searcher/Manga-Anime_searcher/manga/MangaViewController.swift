@@ -87,13 +87,13 @@ class MangaViewController: UIViewController {
         vc.mangas = [manga[index]]
         navigationController?.pushViewController(vc, animated: true)
     }
-//    func moveOnMangaInfo(tindex: Int,cindex: Int){
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
-//            return
-//        }
-//        vc.mangas = [manga[tindex]]
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+    func moveOnMangaInfo(tindex: Int,cindex: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaInfoVC") as? MangaInfoVC else {
+            return
+        }
+        vc.manga = [manga[tindex]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 
@@ -147,6 +147,11 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 index in if let indexp = index {
                     self.moveOnMangaList(index: indexp)
                 }
+            }
+            
+            cell.didSelectMangaClosure = { tabindex, colindex in if let tabindex = tabindex,let colindex = colindex {
+                self.moveOnMangaInfo(tindex: tabindex, cindex: colindex)
+            }
             }
             
             return cell
