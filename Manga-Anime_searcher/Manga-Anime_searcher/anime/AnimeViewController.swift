@@ -10,11 +10,22 @@ import Parse
 import AlamofireImage
 
 class AnimeViewController: UIViewController {
-    var categories = ["", "Popular Anime", "Latest Anime", "", "Upcoming Anime"]
-    @IBOutlet weak var catagory: UILabel!
+   
     var Animes = [[String: Any]] ()
     var latest = [[String: Any]] ()
     var upcoming = [[String: Any]] ()
+    
+    //var categories: [String : [[string:any]]]
+//    var categories: [[String:Any]]{
+//        "Popular Anime": Animes,
+//        "Latest Anime" : latest,
+//        "Upcoming Anime" : upcoming
+//    }()
+    var categories = ["", "Popular Anime", "Latest Anime", "", "Upcoming Anime"]
+    var clickedRow: Int?
+    
+    @IBOutlet weak var catagory: UILabel!
+  
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -73,7 +84,7 @@ class AnimeViewController: UIViewController {
                 self.upcoming = dataDictionary["data"] as![[String: Any]]
                 
                 self.tableView.reloadData()
-                print(dataDictionary)
+//                print(dataDictionary)
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
@@ -126,7 +137,20 @@ class AnimeViewController: UIViewController {
     }
     */
 
-    func moveOnAnimeList(index: Int){
+    func moveOnAnimeLatestList(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {
+            return
+        }
+        //TODO: do we really need to pass data if you alread retrieve inside VC?
+        vc.latest = [latest[index]]
+        
+        vc.scenario = .latestAnime
+        
+//        vc.categories = [categories[index]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func moveOnPopularAnime(index: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {
             return
         }
@@ -137,16 +161,29 @@ class AnimeViewController: UIViewController {
 //            latest.latest = [latest[index]]
 //        }
         vc.animes = [Animes[index]]
-        
+        vc.scenario = .popularAnime
 //        vc.categories = [categories[index]]
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func moveOnAnimeInfo(tindex: Int,cindex: Int){
+    func moveOnAnimeInfo(scenario: ScenarioType, cindex: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
             return
         }
-        vc.anime = [Animes[tindex]]
+        switch scenario {
+        case .popularAnime:
+            break
+        case .latestAnime:
+            break
+        case .upcomingAnime:
+            break
+        }
+//        if tindex == 2 {
+//            vc.anime = [Animes[tindex]]
+//        } else if tiindex == 3 {
+//            vc.anime =
+//        }
+        
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -218,15 +255,45 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.onClickSeeAllClosure = {
                 index in
                 if let indexp = index {
-                    self.moveOnAnimeList(index: indexp)
+                    // Latest Section
+                    if indexPath.row == 2
+                    {
+                        //navigate to latest list
+                        self.moveOnAnimeLatestList(index: indexp)
+                    }
+                    // Upcoming Section
+                    else if indexPath.row == 4
+                    {
+                        // Go to upcoming list
+                    } else if indexPath.row == 1 {
+                        self.moveOnPopularAnime(index: indexp)
+                    }
                 }
             }
+            
             cell.didSelectClosure = { tabindex, colindex in
                 if let tabindex = tabindex, let colindex = colindex {
-                    self.moveOnAnimeInfo(tindex: tabindex, cindex: colindex)
+                    var scenario: ScenarioType = .popularAnime
+                    if indexPath.row == 2
+                    {
+                        //navigate to latest list
+                        scenario = .latestAnime
+                    }
+                    // Upcoming Section
+                    else if indexPath.row == 4
+                    {
+                        // Go to upcoming list
+                        scenario = .upcomingAnime
+                    } else if indexPath.row == 1 {
+                        scenario = .popularAnime
+                    }
+                    self.moveOnAnimeInfo(scenario: scenario,
+                                         cindex: colindex)
                 }
-
+//                clickedRow = 
+                print(tabindex!,colindex!)
             }
+        
             
             return cell
         }

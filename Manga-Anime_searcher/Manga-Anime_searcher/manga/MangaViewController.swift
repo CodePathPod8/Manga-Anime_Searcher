@@ -32,7 +32,7 @@ class MangaViewController: UIViewController {
                 self.manga = dataDictionary["data"] as![[String: Any]]
                 
                 self.MangaTableView.reloadData()
-                print(dataDictionary)
+//                print(dataDictionary)
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data

@@ -12,6 +12,7 @@ import AlamofireImage
 //the two alias below are use to display the the items when the see all btn is click and when then item inside the collection view is clicked
 typealias DidSelectClosure = ((_ tableIndex: Int?,_ collectionIndex: Int?) -> Void)
 typealias SeeAllClosure = ((_ tableIndex: Int?) -> Void)
+
 class AnimeTableCell: UITableViewCell{
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,7 +21,6 @@ class AnimeTableCell: UITableViewCell{
     @IBOutlet weak var catagory: UILabel!
     
     var AnimesTransferred = [[String: Any]] ()
-    
     
     var index: Int?
     var onClickSeeAllClosure: SeeAllClosure?
