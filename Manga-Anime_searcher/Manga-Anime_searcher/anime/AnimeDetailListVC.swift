@@ -176,8 +176,10 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
             return
         }
+        
         vc.anime = [animes[indexPath.row]]
         
+//        vc.scenario = getDataForCell(indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
     }
     

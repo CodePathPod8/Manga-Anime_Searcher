@@ -17,7 +17,7 @@ class AnimeViewController: UIViewController {
     
   
     var categories = ["", "Popular Anime", "Latest Anime", "", "Upcoming Anime"]
-    var clickedRow: Int?
+
     
     @IBOutlet weak var catagory: UILabel!
   
@@ -262,8 +262,9 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
                     {
                         // Go to upcoming list
                         self.moveOnUpcomingAnime(index: indexp)
-                        
+                    // popular section
                     } else if indexPath.row == 1 {
+                        //Go to popular section
                         self.moveOnPopularAnime(index: indexp)
                     }
                 }
@@ -288,7 +289,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
                     self.moveOnAnimeInfo(scenario: scenario,
                                          cindex: colindex)
                 }
-//                clickedRow = 
+
                 print(tabindex!,colindex!)
             }
         

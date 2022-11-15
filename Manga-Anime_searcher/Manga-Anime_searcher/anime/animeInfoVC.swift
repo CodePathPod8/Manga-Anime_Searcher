@@ -59,15 +59,15 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let dataForCell = getDataForCell(indexPath.row)
-        let animes = anime[indexPath.row]
+        let dataForCell = getDataForCell(indexPath.row)
+//        let animes = anime[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "animeInfoCell") as? animeInfoCell else {
             return UITableViewCell()
         }
-        cell.sypnosisLabel.text = animes["synopsis"] as? String
+        cell.sypnosisLabel.text = dataForCell["synopsis"] as? String
         
-        let imagepath = animes["images"] as! [String:Any]
+        let imagepath = dataForCell["images"] as! [String:Any]
 //
         let jpgImage = imagepath["jpg"] as! [String:Any]
         print(jpgImage,"prtting in the other vc")
@@ -75,7 +75,7 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         let imgUrl = URL(string: imageurlPath)
         
         //the below code access the trailer images within the Anime dict
-        let trailerpath = animes["trailer"] as! [String:Any]
+        let trailerpath = dataForCell["trailer"] as! [String:Any]
         // the below coede access the images dict
         let trailerImage = trailerpath["images"] as? [String:Any]
         //this access the final level of the dict
@@ -92,13 +92,13 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         
         
 //
-        let title = animes["title"] as? String
+        let title = dataForCell["title"] as? String
         cell.animeimage.af.setImage(withURL:imgUrl!)
         cell.anititleLabel.text = title
         
 //        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        cell.rankingLabel.text = animes["rating"] as? String
+        cell.rankingLabel.text = dataForCell["rating"] as? String
         navigationItem.title = categories[indexPath.row]
         
         return cell
