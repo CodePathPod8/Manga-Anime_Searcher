@@ -11,11 +11,14 @@ import AlamofireImage
 class animeInfoVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
+    var scenario : ScenarioType = .popularAnime
     
     @IBOutlet weak var infoTableview: UITableView!
     
     
     var anime = [[String: Any]] ()
+    var latest = [[String: Any]] ()
+    var upcoming = [[String: Any]] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +35,31 @@ class animeInfoVC: UIViewController {
 
 extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        switch scenario {
+//        case .popularAnime:
+//            return anime.count
+//        case .latestAnime:
+//            return latest.count
+//        case .upcomingAnime:
+//            return upcoming.count
+//        }
         return 1
     }
     
+    func getDataForCell(_ index: Int) -> [String: Any] {
+        switch scenario {
+        case .popularAnime:
+            return anime[index]
+        case .latestAnime:
+            return latest[index]
+        case .upcomingAnime:
+            return upcoming[index]
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+//        let dataForCell = getDataForCell(indexPath.row)
         let animes = anime[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "animeInfoCell") as? animeInfoCell else {

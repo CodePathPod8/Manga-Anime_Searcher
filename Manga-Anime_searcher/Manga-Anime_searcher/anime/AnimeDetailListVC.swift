@@ -23,6 +23,7 @@ class AnimeDetailListVC: UIViewController {
     
     var animes = [[String: Any]] ()
     var latest = [[String: Any]] ()
+    var upcoming = [[String: Any]] ()
     
     fileprivate func loadLatestAnimeData() {
         //latest animes
@@ -71,6 +72,29 @@ class AnimeDetailListVC: UIViewController {
         task.resume()
     }
     
+    fileprivate func loadUpcomingAnimeData() {
+        //latest animes
+        let urls2 = URL(string: "https://api.jikan.moe/v4/seasons/upcoming")!
+        let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks2 = sessions2.dataTask(with: requests2) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.upcoming = dataDictionary["data"] as![[String: Any]]
+                
+                self.animeListTableview.reloadData()
+//                print(dataDictionary)
+                
+            }
+        }
+        tasks2.resume()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,7 +107,7 @@ class AnimeDetailListVC: UIViewController {
         case .latestAnime:
             loadLatestAnimeData()
         case .upcomingAnime:
-            break
+            loadUpcomingAnimeData()
         }
         
         // Do any additional setup after loading the view.
@@ -102,7 +126,7 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         case .latestAnime:
             return latest.count
         case .upcomingAnime:
-            return 0
+            return upcoming.count
         }
     }
     
@@ -113,7 +137,7 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         case .latestAnime:
             return latest[index]
         case .upcomingAnime:
-            return [:]
+            return upcoming[index]
         }
     }
     
@@ -153,6 +177,7 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
             return
         }
         vc.anime = [animes[indexPath.row]]
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

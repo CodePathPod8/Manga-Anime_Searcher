@@ -14,8 +14,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeDetailListVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeDetailListVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeDetailListVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "Manga-Anime_searcher/anime/AnimeDetailListVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "loadLatestAnimeData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,13 +190,13 @@
             filePath = "Manga-Anime_searcher/anime/AnimeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77e1"
+                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -206,12 +206,12 @@
                   urlString = "file:///Users/yunsan/Desktop/Manga-Anime_Searcher/Manga-Anime_searcher/Manga-Anime_searcher/anime/AnimeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "275"
-                  endingLineNumber = "275"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
                   offsetFromSymbolStart = "221">
                </Location>
                <Location
-                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77e1"
+                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -221,12 +221,12 @@
                   urlString = "file:///Users/yunsan/Desktop/Manga-Anime_Searcher/Manga-Anime_searcher/Manga-Anime_searcher/anime/AnimeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "275"
-                  endingLineNumber = "275"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
                   offsetFromSymbolStart = "241">
                </Location>
                <Location
-                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77e1"
+                  uuid = "F36B6695-85D8-46C9-8D70-5B178C8A0FCD - 2e3d2aa4c57e77a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -236,8 +236,8 @@
                   urlString = "file:///Users/yunsan/Desktop/Manga-Anime_Searcher/Manga-Anime_searcher/Manga-Anime_searcher/anime/AnimeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "275"
-                  endingLineNumber = "275"
+                  startingLineNumber = "273"
+                  endingLineNumber = "273"
                   offsetFromSymbolStart = "280">
                </Location>
             </Locations>

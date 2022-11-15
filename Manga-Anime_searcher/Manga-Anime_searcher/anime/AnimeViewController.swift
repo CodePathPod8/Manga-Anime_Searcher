@@ -15,12 +15,7 @@ class AnimeViewController: UIViewController {
     var latest = [[String: Any]] ()
     var upcoming = [[String: Any]] ()
     
-    //var categories: [String : [[string:any]]]
-//    var categories: [[String:Any]]{
-//        "Popular Anime": Animes,
-//        "Latest Anime" : latest,
-//        "Upcoming Anime" : upcoming
-//    }()
+  
     var categories = ["", "Popular Anime", "Latest Anime", "", "Upcoming Anime"]
     var clickedRow: Int?
     
@@ -142,7 +137,7 @@ class AnimeViewController: UIViewController {
             return
         }
         //TODO: do we really need to pass data if you alread retrieve inside VC?
-        vc.latest = [latest[index]]
+//        vc.latest = [latest[index]]
         
         vc.scenario = .latestAnime
         
@@ -155,14 +150,15 @@ class AnimeViewController: UIViewController {
             return
         }
         //trying to make it so the see all loads the data from the different enpoints
-//        if let anime = vc {
-//            anime.animes = [Animes[index]]
-//        } else if let latest = vc {
-//            latest.latest = [latest[index]]
-//        }
-        vc.animes = [Animes[index]]
         vc.scenario = .popularAnime
-//        vc.categories = [categories[index]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    func moveOnUpcomingAnime(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {
+            return
+        }
+        //trying to make it so the see all loads the data from the different enpoints
+        vc.scenario = .upcomingAnime
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -265,6 +261,8 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
                     else if indexPath.row == 4
                     {
                         // Go to upcoming list
+                        self.moveOnUpcomingAnime(index: indexp)
+                        
                     } else if indexPath.row == 1 {
                         self.moveOnPopularAnime(index: indexp)
                     }
