@@ -8,6 +8,10 @@
 import UIKit
 import AlamofireImage
 
+//the two alias below are use to display the the items when the see all btn is click and when then item inside the collection view is clicked
+typealias DidSelectMangaClosure = ((_ tableIndex: Int?,_ collectionIndex: Int?) -> Void)
+typealias SeeAllMangaClosure = ((_ tableIndex: Int?) -> Void)
+
 class MangaTableCell: UITableViewCell {
 
     
@@ -16,6 +20,10 @@ class MangaTableCell: UITableViewCell {
     @IBOutlet weak var MangaCategory: UILabel!
     
     var mangaTransferred = [[String:Any]] ()
+    
+    var index: Int?
+    var onClickSeeAllMangaClosure: SeeAllMangaClosure?
+    var didSelectMangaClosure: DidSelectMangaClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +35,13 @@ class MangaTableCell: UITableViewCell {
         let width = collectionView.frame.size.width*2
         layout.itemSize = CGSize(width: width, height: 300)
     }
+    
+    //this is the btn See All
 
+    @IBAction func onClickSeeAll(_ sender: Any) {
+        onClickSeeAllMangaClosure?(index)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -61,7 +75,13 @@ extension MangaTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
         return 7
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-return CGSize(width: 149, height: 210)
+        return CGSize(width: 149, height: 210)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // this is use when the item inside the collection view is click to display the specific item, this needs further improvement
+        
+        didSelectMangaClosure?(index,indexPath.row)
     }
 }
 

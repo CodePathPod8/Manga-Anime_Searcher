@@ -79,6 +79,23 @@ class MangaViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func moveOnMangaList(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+            return
+        }
+        vc.mangas = [manga[index]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+//    func moveOnMangaInfo(tindex: Int,cindex: Int){
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+//            return
+//        }
+//        vc.mangas = [manga[tindex]]
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+    
 
 }
 extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
@@ -123,6 +140,15 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
             cell.MangaCategory.text = categories[indexPath.row]
             cell.mangaTransferred = manga
+            
+            cell.index = indexPath.row
+            
+            cell.onClickSeeAllMangaClosure = {
+                index in if let indexp = index {
+                    self.moveOnMangaList(index: indexp)
+                }
+            }
+            
             return cell
         }
     }

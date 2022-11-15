@@ -1,23 +1,26 @@
 //
-//  AnimeListCell.swift
+//  MangaListCell.swift
 //  Manga-Anime_searcher
 //
-//  Created by Yunior Sanchez on 11/12/22.
+//  Created by Yunior Sanchez on 11/14/22.
 //
 
 import UIKit
 
-class AnimeListCell: UITableViewCell {
+class MangaListCell: UITableViewCell {
 
     
+    @IBOutlet weak var MangaImage: UIImageView!
     
-    @IBOutlet weak var animeImage: UIImageView!
-    @IBOutlet weak var animeTitleLabel: UILabel!
+    @IBOutlet weak var mangaTitleLabel: UILabel!
+    
+  
     @IBOutlet weak var ratingLabel: UILabel!
+    
+    
     @IBOutlet weak var sypnosisLabel: UILabel!
+    
     @IBOutlet weak var epidNumLabel: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
