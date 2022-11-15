@@ -169,8 +169,8 @@
 		BD10078429047722005E915B /* Manga-Anime_searcher */ = {
 			isa = PBXGroup;
 			children = (
-				BD9845D32922D7E500151351 /* manga */,
 				BD9845CC2921394500151351 /* Cells */,
+				BD9845D32922D7E500151351 /* manga */,
 				BD9845CB2921391300151351 /* anime */,
 				BD10078529047722005E915B /* AppDelegate.swift */,
 				BD10078729047722005E915B /* SceneDelegate.swift */,

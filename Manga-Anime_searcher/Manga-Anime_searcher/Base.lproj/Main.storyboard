@@ -1066,7 +1066,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-ES-LKa">
-                                                    <rect key="frame" x="150" y="4" width="84" height="28"/>
+                                                    <rect key="frame" x="256" y="11" width="77" height="23"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="See All"/>
                                                     <connections>
@@ -1076,10 +1076,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NER-is-x2J" firstAttribute="top" secondItem="rCN-vf-g87" secondAttribute="topMargin" id="3xy-yC-iGb"/>
-                                                <constraint firstItem="bXM-ES-LKa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NER-is-x2J" secondAttribute="trailing" constant="5" id="Nid-mi-Y26"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bXM-ES-LKa" secondAttribute="trailing" constant="156" id="ZkK-uW-Eco"/>
+                                                <constraint firstItem="bXM-ES-LKa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NER-is-x2J" secondAttribute="trailing" constant="2" id="Nid-mi-Y26"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bXM-ES-LKa" secondAttribute="trailing" constant="8" id="ZkK-uW-Eco"/>
                                                 <constraint firstItem="NER-is-x2J" firstAttribute="leading" secondItem="rCN-vf-g87" secondAttribute="leadingMargin" id="pGG-uH-8HB"/>
-                                                <constraint firstItem="bXM-ES-LKa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NER-is-x2J" secondAttribute="trailing" constant="5" id="vpO-Jt-b2p"/>
+                                                <constraint firstItem="bXM-ES-LKa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NER-is-x2J" secondAttribute="trailing" constant="2" id="vpO-Jt-b2p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

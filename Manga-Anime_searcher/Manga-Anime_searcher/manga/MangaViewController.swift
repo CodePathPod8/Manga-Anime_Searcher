@@ -10,7 +10,7 @@ import Parse
 import AlamofireImage
 
 class MangaViewController: UIViewController {
-    var categories = ["", "Popular Manga", "Latest Manga", "", "Action Manga"]
+    var categories = ["", "Top/Popular Manga", "Latest Manga", "", "Action Manga"]
     
     var manga = [[String:Any]]()
 
