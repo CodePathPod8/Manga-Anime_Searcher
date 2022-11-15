@@ -35,15 +35,15 @@ class animeInfoVC: UIViewController {
 
 extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch scenario {
-//        case .popularAnime:
-//            return anime.count
-//        case .latestAnime:
-//            return latest.count
-//        case .upcomingAnime:
-//            return upcoming.count
-//        }
-        return 1
+        switch scenario {
+        case .popularAnime:
+            return 1//anime.count
+        case .latestAnime:
+            return 1//latest.count
+        case .upcomingAnime:
+            return 1//upcoming.count
+        }
+//        return 1
     }
     
     func getDataForCell(_ index: Int) -> [String: Any] {

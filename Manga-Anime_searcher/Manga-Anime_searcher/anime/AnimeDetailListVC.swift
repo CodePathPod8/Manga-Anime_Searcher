@@ -179,7 +179,12 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         
         vc.anime = [animes[indexPath.row]]
         
-//        vc.scenario = getDataForCell(indexPath.row)
+//         vc.scenario = .popularAnime
+//        {
+//            vc.scenario == .latestAnime
+//        } else {
+//            vc.scenario == .upcomingAnime
+//        }
         navigationController?.pushViewController(vc, animated: true)
     }
     

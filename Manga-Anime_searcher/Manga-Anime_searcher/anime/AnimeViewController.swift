@@ -11,7 +11,7 @@ import AlamofireImage
 
 class AnimeViewController: UIViewController {
    
-    var Animes = [[String: Any]] ()
+    var animes = [[String: Any]] ()
     var latest = [[String: Any]] ()
     var upcoming = [[String: Any]] ()
     
@@ -36,7 +36,7 @@ class AnimeViewController: UIViewController {
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                self.Animes = dataDictionary["data"] as![[String: Any]]
+                self.animes = dataDictionary["data"] as![[String: Any]]
                 
                 self.tableView.reloadData()
                 print(dataDictionary)
@@ -190,10 +190,10 @@ class AnimeViewController: UIViewController {
 
 extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Animes.count > 5 ? 5 : Animes.count
+        return animes.count > 5 ? 5 : animes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let anime = Animes[indexPath.row]
+        let anime = animes[indexPath.row]
         if(indexPath.row == 0 || indexPath.row == 3)
         {
            
@@ -237,7 +237,7 @@ extension AnimeViewController: UITableViewDelegate, UITableViewDataSource{
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeTableCell
             cell.catagory.text = categories[indexPath.row]
-            cell.AnimesTransferred = Animes
+            cell.AnimesTransferred = animes
             if(indexPath.row == 2)
             {
                 cell.AnimesTransferred = latest
