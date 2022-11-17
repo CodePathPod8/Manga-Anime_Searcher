@@ -16,7 +16,7 @@ enum ScenarioType {
 class AnimeDetailListVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
-    var scenario : ScenarioType = .popularAnime
+    var scenarios : ScenarioType = .popularAnime
     
     //below is the tableview connectiong
     @IBOutlet weak var animeListTableview: UITableView!
@@ -101,7 +101,7 @@ class AnimeDetailListVC: UIViewController {
         //delegate is used to allow the click on the item and datasource loads the data in the tableview
         animeListTableview.delegate = self
         animeListTableview.dataSource = self
-        switch scenario {
+        switch scenarios {
         case .popularAnime:
             loadPopularAnimeData()
         case .latestAnime:
@@ -120,7 +120,7 @@ class AnimeDetailListVC: UIViewController {
 
 extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch scenario {
+        switch scenarios {
         case .popularAnime:
             return animes.count
         case .latestAnime:
@@ -131,7 +131,7 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func getDataForCell(_ index: Int) -> [String: Any] {
-        switch scenario {
+        switch scenarios {
         case .popularAnime:
             return animes[index]
         case .latestAnime:
@@ -177,14 +177,16 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
             return
         }
         
-        vc.anime = [animes[indexPath.row]]
-        
-//         vc.scenario = .popularAnime
-//        {
-//            vc.scenario == .latestAnime
-//        } else {
-//            vc.scenario == .upcomingAnime
-//        }
+        switch scenarios{
+            
+        case .popularAnime:
+            vc.anime = [animes[indexPath.row]]
+        case .latestAnime:
+            vc.anime = [latest[indexPath.row]]
+        case .upcomingAnime:
+            vc.anime = [upcoming[indexPath.row]]
+        }
+
         navigationController?.pushViewController(vc, animated: true)
     }
     

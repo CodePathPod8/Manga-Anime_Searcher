@@ -8,6 +8,12 @@
 import UIKit
 import AlamofireImage
 
+
+//enum Scenario2Type {
+//    case popularAnime
+//    case latestAnime
+//    case upcomingAnime
+//}
 class animeInfoVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
@@ -24,6 +30,7 @@ class animeInfoVC: UIViewController {
         super.viewDidLoad()
         
         infoTableview.dataSource = self
+        
 
         // Do any additional setup after loading the view.
     }
@@ -37,11 +44,11 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch scenario {
         case .popularAnime:
-            return 1//anime.count
+            return anime.count
         case .latestAnime:
-            return 1//latest.count
+            return latest.count
         case .upcomingAnime:
-            return 1//upcoming.count
+            return upcoming.count
         }
 //        return 1
     }
@@ -61,7 +68,7 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataForCell = getDataForCell(indexPath.row)
 //        let animes = anime[indexPath.row]
-        
+        print(dataForCell,"this is the info here")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "animeInfoCell") as? animeInfoCell else {
             return UITableViewCell()
         }
@@ -70,7 +77,7 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         let imagepath = dataForCell["images"] as! [String:Any]
 //
         let jpgImage = imagepath["jpg"] as! [String:Any]
-        print(jpgImage,"prtting in the other vc")
+//        print(jpgImage,"prtting in the other vc")
         let imageurlPath = jpgImage["large_image_url"] as! String
         let imgUrl = URL(string: imageurlPath)
         

@@ -139,7 +139,7 @@ class AnimeViewController: UIViewController {
         //TODO: do we really need to pass data if you alread retrieve inside VC?
 //        vc.latest = [latest[index]]
         
-        vc.scenario = .latestAnime
+        vc.scenarios = .latestAnime
         
 //        vc.categories = [categories[index]]
         navigationController?.pushViewController(vc, animated: true)
@@ -150,7 +150,7 @@ class AnimeViewController: UIViewController {
             return
         }
         //trying to make it so the see all loads the data from the different enpoints
-        vc.scenario = .popularAnime
+        vc.scenarios = .popularAnime
         navigationController?.pushViewController(vc, animated: true)
     }
     func moveOnUpcomingAnime(index: Int){
@@ -158,7 +158,7 @@ class AnimeViewController: UIViewController {
             return
         }
         //trying to make it so the see all loads the data from the different enpoints
-        vc.scenario = .upcomingAnime
+        vc.scenarios = .upcomingAnime
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -166,13 +166,23 @@ class AnimeViewController: UIViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
             return
         }
-        switch scenario {
+//        switch scenario {
+//        case .popularAnime:
+//            break
+//        case .latestAnime:
+//            break
+//        case .upcomingAnime:
+//            break
+//        }
+        
+        switch scenario{
+            
         case .popularAnime:
-            break
+            vc.anime = [animes[cindex]]
         case .latestAnime:
-            break
+            vc.anime = [latest[cindex]]
         case .upcomingAnime:
-            break
+            vc.anime = [upcoming[cindex]]
         }
 //        if tindex == 2 {
 //            vc.anime = [Animes[tindex]]
