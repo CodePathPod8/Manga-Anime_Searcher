@@ -166,14 +166,7 @@ class AnimeViewController: UIViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "animeInfoVC") as? animeInfoVC else {
             return
         }
-//        switch scenario {
-//        case .popularAnime:
-//            break
-//        case .latestAnime:
-//            break
-//        case .upcomingAnime:
-//            break
-//        }
+
         
         switch scenario{
             
@@ -184,12 +177,6 @@ class AnimeViewController: UIViewController {
         case .upcomingAnime:
             vc.anime = [upcoming[cindex]]
         }
-//        if tindex == 2 {
-//            vc.anime = [Animes[tindex]]
-//        } else if tiindex == 3 {
-//            vc.anime =
-//        }
-        
         
         navigationController?.pushViewController(vc, animated: true)
     }
