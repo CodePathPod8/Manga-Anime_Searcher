@@ -21,6 +21,8 @@ class MangaTableCell: UITableViewCell {
     
     var mangaTransferred = [[String:Any]] ()
     
+//    var randomTransferred = [String:Any] ()
+    
     var index: Int?
     var onClickSeeAllMangaClosure: SeeAllMangaClosure?
     var didSelectMangaClosure: DidSelectMangaClosure?

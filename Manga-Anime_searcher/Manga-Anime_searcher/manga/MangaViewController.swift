@@ -13,7 +13,8 @@ class MangaViewController: UIViewController {
     var categories = ["", "Top/Popular Manga", "Latest Manga", "", "Action Manga"]
     
     var manga = [[String:Any]]()
-
+    var random = [String:Any]()
+    var recommended = [[String:Any]]()
     @IBOutlet weak var MangaTableView: UITableView!
     
     
@@ -32,13 +33,53 @@ class MangaViewController: UIViewController {
                 self.manga = dataDictionary["data"] as![[String: Any]]
                 
                 self.MangaTableView.reloadData()
-//                print(dataDictionary)
+                print(dataDictionary,"this is manga")
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
             }
         }
         task.resume()
+        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.random = dataDictionary["data"] as! [String: Any]
+                
+                self.MangaTableView.reloadData()
+                print(dataDictionary,"this is randon mangas")
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        tasks.resume()
+        let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!
+        let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks2 = sessions2.dataTask(with: requests2) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.recommended = dataDictionary["data"] as![[String: Any]]
+                
+                self.MangaTableView.reloadData()
+                print(dataDictionary,"this is recommended")
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+            }
+        }
+        tasks2.resume()
     
         // Do any additional setup after loading the view.
     }
@@ -140,6 +181,12 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
             cell.MangaCategory.text = categories[indexPath.row]
             cell.mangaTransferred = manga
+//            if indexPath.row == 2 {
+//                cell.mangaTransferred = recommended
+//                cell.randomTransferred = random
+            //} //else if indexPath.row == 4 {
+//                cell.mangaTransferred = recommended
+//            }
             
             cell.index = indexPath.row
             
