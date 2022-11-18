@@ -90,9 +90,16 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         }
         
         
-        
+        if let title = (dataForCells["title"] as? String){
+            print(title, " in la info")
+            cell.mangtitleLabel.text = title
+        } else if let recomTittle = dataForCells["entry"] as? [[String:Any]] {
+            let it = recomTittle[0]["title"] as? String
+            
+            cell.mangtitleLabel.text = it
+        }
 //
-        let title = dataForCells["title"] as? String
+//        let title = dataForCells["title"] as? String
         cell.mangaimage.af.setImage(withURL:imgUrl!)
         cell.mangtitleLabel.text = title
         

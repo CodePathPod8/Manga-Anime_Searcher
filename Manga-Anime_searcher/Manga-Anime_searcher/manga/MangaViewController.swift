@@ -187,10 +187,11 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             }
 //
             if let title = (mangas["title"] as? String){
+                print(title,"t")
                 cell.titleLabel.text = title
             } else if let recomTittle = mangas["entry"] as? [[String:Any]] {
                 let it = recomTittle[0]["title"] as? String
-                
+                print(it,"que es esto?")
                 cell.titleLabel.text = it
             }
 ////

@@ -67,17 +67,25 @@ extension MangaTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
 //        let imgUrl = URL(string: imageurlPath)
 //        // display images
 //        cell.mangaImage.af.setImage(withURL:imgUrl!)
-
-        cell.mangaTitleLabel.text = manga["title"] as? String
+        if let title = (manga["title"] as? String){
+            print(title,"thi is ti")
+            cell.mangaTitleLabel.text = title
+        } else if let recomTittle = manga["entry"] as? [[String:Any]] {
+            let it = recomTittle[0]["title"] as? String
+            print(it,"que es esto?")
+            cell.mangaTitleLabel.text = it
+        }
+//        cell.mangaTitleLabel.text = manga["title"] as? String
     
         if let imagepath = (manga["images"] as? [String:Any]){
-            let recomendedimagepath = manga["entry"] as? [[String:Any]]
             
             let jpgImage = imagepath["jpg"] as! [String:Any]
             
             let imageurlPath = jpgImage["large_image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
             cell.mangaImage.af.setImage(withURL:imgUrl!)
+        } else if let recomendedimagepath = manga["entry"] as? [[String:Any]]{
+            //this is how we get picture inside
         }
         return cell
     }
