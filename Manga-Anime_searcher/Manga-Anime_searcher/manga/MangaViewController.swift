@@ -170,6 +170,9 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.SmallerImage.af.setImage(withURL:imgUrl!)
             } else if let recomendedimagepath = mangas["entry"] as? [[String:Any]] {
             
+//                let imagerec = recomendedimagepath[1]["images"] as? String
+//                let jpg = imagerec["jpg"] as? [String:Any]
+//                print(imagerec,"finally")
     
             
             print(recomendedimagepath,"this is rec imagepa")
@@ -186,7 +189,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
            
 //
             let title = mangas["title"] as? String
-            print(title,"thiis tittle")
+        
             cell.titleLabel.text = title
             //the below code access the trailer images within the Anime dict
             let trailerpath = mangas["images"] as! [String:Any]

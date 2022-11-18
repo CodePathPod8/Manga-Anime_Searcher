@@ -7,38 +7,46 @@
 
 import UIKit
 import Parse
+import AlamofireImage
+
 
 class HomeFeedViewController: UIViewController {
 
+    
+    var people = [[String:Any]]()
+    
+    
+    
+    @IBOutlet weak var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.delegate = self
+        tableview.dataSource = self
 
         // Do any additional setup after loading the view.
-        
+        let url = URL(string: "https://api.jikan.moe/v4/top/characters")!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.people = dataDictionary["data"] as![[String: Any]]
+                
+                self.tableview.reloadData()
+                print(dataDictionary)
+               
+            }
+        }
+        task.resume()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-//    func myAlert(title: String,message: String, handlerOK: ((UIAlertAction) -> Void)? ) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Logout", style: .default, handler: handlerOK)
-//        let action2 = UIAlertAction(title: "Cancel", style: .cancel, handler: handlerOK)
-//        alert.addAction(action)
-//        alert.addAction(action2)
-//        DispatchQueue.main.async {
-//            self.present(alert,animated: true)
-//            alert.view.superview?.isUserInteractionEnabled = true
-//        }
-//
-//    }
+  
     @objc func dismissOnTapOutside(){
        self.dismiss(animated: true, completion: nil)
     }
@@ -71,5 +79,44 @@ class HomeFeedViewController: UIViewController {
         alert.addAction(cancelAction)
         
     }
+    
+}
+
+extension HomeFeedViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return people.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let peoples = people[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell") as? homeCell else {
+            return UITableViewCell()
+        }
+        
+        let imagepath = peoples["images"] as! [String:Any]
+//
+        let jpgImage = imagepath["jpg"] as! [String:Any]
+        
+        let imageurlPath = jpgImage["image_url"] as! String
+        let imgUrl = URL(string: imageurlPath)
+        cell.actorImage.af.setImage(withURL: imgUrl!)
+        
+        cell.actorName.text = peoples["name"] as? String
+        
+        cell.aboutLabel.text = peoples["about"] as? String
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "homeInfoVC") as? homeInfoVC else {
+            return
+        }
+        
+        vc.people = [people[indexPath.row]]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
 }

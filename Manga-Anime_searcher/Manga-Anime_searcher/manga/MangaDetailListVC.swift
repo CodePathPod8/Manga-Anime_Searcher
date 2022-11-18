@@ -163,14 +163,7 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         }else if let content = (dataforcell["content"] as? String) {
             cell.sypnosisLabel.text = content
         }
-//        cell.sypnosisLabel.text = dataforcell["synopsis"] as? String
-        
-//        if cell.sypnosisLabel.text == (dataforcell["synopsis"] as? String) {
-//            cell.sypnosisLabel.text = dataforcell["synopsis"] as? String
-//
-//        } else {
-//            cell.sypnosisLabel.text = (dataforcell["content"] as? String)
-//        }
+
         
         if let imagepath = (dataforcell["images"] as? [String:Any]){
             
@@ -179,7 +172,14 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
             let imageurlPath = jpgImage["large_image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
             cell.MangaImage.af.setImage(withURL:imgUrl!)
-        }
+        } else if let recomendedimagepath = dataforcell["entry"] as? [[String:Any]] {
+            print(recomendedimagepath, "is this printing here?")
+//            let imagrec = recomendedimagepath[1]["imges"] as! [String:Any]
+//            print(imagrec,"this is hapeee")
+//            let it = recomendedimagepath[["images"]] as? String
+//            print(it!, "is this printtint tittles")
+
+            }
         
 //        let recomendedimagepath = dataforcell["entry"] as? [[String:Any]]
 //        print(recomendedimagepath!, "is this printing")
@@ -207,9 +207,15 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
 //        let imageurlPath = jpgImage["large_image_url"] as! String
 //        let imgUrl = URL(string: imageurlPath)
 ////
-        let title = dataforcell["title"] as? String
+        if let title = (dataforcell["title"] as? String){
+            cell.mangaTitleLabel.text = title
+        } else if let recomTittle = dataforcell["entry"] as? [[String:Any]] {
+            let it = recomTittle[0]["title"] as? String
+            
+            cell.mangaTitleLabel.text = it
+        }
 //        cell.MangaImage.af.setImage(withURL:imgUrl!)
-        cell.mangaTitleLabel.text = title
+//        cell.mangaTitleLabel.text = title
         
 //        let epinum = String((dataforcell["episodes"] as? Int)!)
 //        cell.epidNumLabel.text = epinum
@@ -217,10 +223,10 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         cell.statusLabel.text = dataforcell["status"] as? String
 //        navigationItem.title = categories[indexPath.row]
         
-        let rank = String((dataforcell["rank"] as? Int)!)
-        
-        cell.rankinLabel.text = rank
-        
+//        let rank = String(((dataforcell["rank"] as? Int)!))
+//
+//        cell.rankinLabel.text = rank
+//
         return cell
     }
     //the below is used so that when one of the item list is clicked it sends to the next VC where it display further info about that item.
