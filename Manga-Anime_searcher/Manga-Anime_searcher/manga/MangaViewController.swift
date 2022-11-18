@@ -186,11 +186,17 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             
             }
 //
-           
+            if let title = (mangas["title"] as? String){
+                cell.titleLabel.text = title
+            } else if let recomTittle = mangas["entry"] as? [[String:Any]] {
+                let it = recomTittle[0]["title"] as? String
+                
+                cell.titleLabel.text = it
+            }
+////
+//            let title = mangas["title"] as? String
 //
-            let title = mangas["title"] as? String
-        
-            cell.titleLabel.text = title
+//            cell.titleLabel.text = title
             //the below code access the trailer images within the Anime dict
             let trailerpath = mangas["images"] as! [String:Any]
             // the below coede access the images dict

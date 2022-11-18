@@ -1534,14 +1534,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sypnosis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRN-ae-vWn">
-                                                    <rect key="frame" x="20" y="239.33333333333334" width="67" height="20.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="animetitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-aH-feS">
+                                                    <rect key="frame" x="148" y="170.33333333333334" width="74.333333333333314" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="animetitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-aH-feS">
-                                                    <rect key="frame" x="148" y="170.33333333333334" width="74.333333333333314" height="20.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3r-cZ-dhs">
+                                                    <rect key="frame" x="20" y="239" width="67" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sypnosis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRN-ae-vWn">
+                                                    <rect key="frame" x="20" y="262.66666666666669" width="67" height="20.333333333333314"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1550,6 +1556,7 @@
                                             <constraints>
                                                 <constraint firstItem="wGN-h7-fsn" firstAttribute="leading" secondItem="mPl-nC-LxQ" secondAttribute="trailing" constant="6" id="0db-As-4nd"/>
                                                 <constraint firstItem="IRN-ae-vWn" firstAttribute="leading" secondItem="6wO-oD-O9s" secondAttribute="leadingMargin" id="1dV-f5-6Vt"/>
+                                                <constraint firstItem="D3r-cZ-dhs" firstAttribute="top" secondItem="mPl-nC-LxQ" secondAttribute="bottom" constant="8" id="2aq-Ak-uz3"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="IRN-ae-vWn" secondAttribute="bottom" constant="8" id="Ahh-zb-PE7"/>
                                                 <constraint firstItem="2Yf-sC-vwI" firstAttribute="leading" secondItem="6wO-oD-O9s" secondAttribute="leadingMargin" constant="-14" id="CPw-gQ-hXF"/>
                                                 <constraint firstItem="gLe-aH-feS" firstAttribute="top" secondItem="7RC-fw-bcb" secondAttribute="bottom" constant="6" id="DEK-w3-AfW"/>
@@ -1557,14 +1564,14 @@
                                                 <constraint firstItem="mPl-nC-LxQ" firstAttribute="leading" secondItem="6wO-oD-O9s" secondAttribute="leadingMargin" id="GjD-vP-kYL"/>
                                                 <constraint firstItem="pll-hv-95W" firstAttribute="top" secondItem="6wO-oD-O9s" secondAttribute="topMargin" constant="52" id="Mco-2t-ITL"/>
                                                 <constraint firstItem="gLe-aH-feS" firstAttribute="leading" secondItem="pll-hv-95W" secondAttribute="trailing" constant="8" id="O2K-Hc-Jaj"/>
+                                                <constraint firstItem="D3r-cZ-dhs" firstAttribute="leading" secondItem="IRN-ae-vWn" secondAttribute="leading" id="QAN-Z3-DXq"/>
                                                 <constraint firstItem="pll-hv-95W" firstAttribute="leading" secondItem="6wO-oD-O9s" secondAttribute="leadingMargin" id="RwZ-lh-Hp7"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="gLe-aH-feS" secondAttribute="trailing" constant="8" id="Xqs-VB-Ucd"/>
                                                 <constraint firstItem="2Yf-sC-vwI" firstAttribute="trailing" secondItem="6wO-oD-O9s" secondAttribute="trailingMargin" constant="10" id="Xsq-wo-FAI"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="7RC-fw-bcb" secondAttribute="trailing" constant="8" id="Zpg-gl-mA3"/>
-                                                <constraint firstItem="IRN-ae-vWn" firstAttribute="top" secondItem="wGN-h7-fsn" secondAttribute="bottom" constant="8" id="bNT-dq-Msd"/>
+                                                <constraint firstItem="IRN-ae-vWn" firstAttribute="top" secondItem="D3r-cZ-dhs" secondAttribute="bottom" constant="3" id="eD1-ly-X9i"/>
                                                 <constraint firstItem="mPl-nC-LxQ" firstAttribute="top" secondItem="pll-hv-95W" secondAttribute="bottom" constant="8" id="ftr-Vk-YB5"/>
                                                 <constraint firstItem="7RC-fw-bcb" firstAttribute="leading" secondItem="pll-hv-95W" secondAttribute="trailing" constant="8" id="kcD-8B-1Q3"/>
-                                                <constraint firstItem="IRN-ae-vWn" firstAttribute="top" secondItem="mPl-nC-LxQ" secondAttribute="bottom" constant="8" id="lxZ-rb-0E7"/>
                                                 <constraint firstItem="7RC-fw-bcb" firstAttribute="top" secondItem="2Yf-sC-vwI" secondAttribute="bottom" constant="8" id="mFV-8I-2jW"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IRN-ae-vWn" secondAttribute="trailing" constant="8" id="pqF-H9-sR1"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wGN-h7-fsn" secondAttribute="trailing" constant="8" id="rh8-mG-t91"/>
