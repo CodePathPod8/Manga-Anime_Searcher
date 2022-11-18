@@ -40,9 +40,7 @@ class AnimeViewController: UIViewController {
                 
                 self.tableView.reloadData()
                 print(dataDictionary)
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+               
             }
         }
         task.resume()
@@ -80,9 +78,7 @@ class AnimeViewController: UIViewController {
                 
                 self.tableView.reloadData()
 //                print(dataDictionary)
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+               
             }
         }
         tasks2.resume()
@@ -122,15 +118,7 @@ class AnimeViewController: UIViewController {
         alert.addAction(cancelAction)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
     func moveOnAnimeLatestList(index: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailListVC") as? AnimeDetailListVC else {

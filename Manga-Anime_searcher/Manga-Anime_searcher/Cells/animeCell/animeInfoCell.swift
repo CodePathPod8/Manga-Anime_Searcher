@@ -20,6 +20,10 @@ class animeInfoCell: UITableViewCell {
     
     @IBOutlet weak var sypnosisLabel: UILabel!
     
+    @IBOutlet weak var epidNumLabel: UILabel!
+    
+    
+    @IBOutlet weak var stattusLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

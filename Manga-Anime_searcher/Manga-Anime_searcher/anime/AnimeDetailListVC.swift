@@ -161,12 +161,14 @@ extension AnimeDetailListVC: UITableViewDelegate, UITableViewDataSource{
         cell.animeImage.af.setImage(withURL:imgUrl!)
         cell.animeTitleLabel.text = title
         
-//        let epinum = anime["episodes"] as? Int
-//        cell.epidNumLabel.text = epinum
+        let epinum = String((dataForCell["episodes"] as? Int)!)
+        cell.epidNumLabel.text = epinum
         
         cell.ratingLabel.text = dataForCell["rating"] as? String
 //        navigationItem.title = categories[indexPath.row]
+        let rank = String((dataForCell["rank"] as? Int)!)
         
+        cell.rankingLabel.text = rank
         
         return cell
     }

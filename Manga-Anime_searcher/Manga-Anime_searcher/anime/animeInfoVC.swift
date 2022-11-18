@@ -72,7 +72,10 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "animeInfoCell") as? animeInfoCell else {
             return UITableViewCell()
         }
-        cell.sypnosisLabel.text = dataForCell["synopsis"] as? String
+        //setting sypnosis to the data value
+        //if
+        cell.sypnosisLabel.text = (dataForCell["synopsis"] as? String)//{
+            
         
         let imagepath = dataForCell["images"] as! [String:Any]
 //
@@ -105,7 +108,13 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         
 //        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        cell.rankingLabel.text = dataForCell["rating"] as? String
+        let rank = String((dataForCell["rank"] as? Int)!)
+        cell.rankingLabel.text = rank
+        
+        let epinum = String((dataForCell["episodes"] as? Int)!)
+        cell.epidNumLabel.text = epinum
+        
+        cell.stattusLabel.text = dataForCell["status"] as? String
         navigationItem.title = categories[indexPath.row]
         
         return cell

@@ -12,7 +12,10 @@ class MangaInfoVC: UIViewController {
 
     var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
     var manga = [[String: Any]] ()
+    var recommended = [[String:Any]]()
+//    var random = [String:Any]()
     
+    var scenario: ScenarioMangaType = .topManga
     
     @IBOutlet weak var infomangaTableview: UITableView!
     
@@ -30,19 +33,41 @@ class MangaInfoVC: UIViewController {
 
 extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch scenario {
+        case .topManga:
+            return manga.count
+//        case randonManga
+//            return random.count
+        case .recomManga:
+            return recommended.count
+        }
+        
+//        return 1
+    }
+    
+    func getMangaDataCell(_ index: Int) -> [String:Any] {
+        switch scenario {
+        case .topManga:
+            return manga[index]
+//        case .randomManga:
+//            return random[index]
+        case .recomManga:
+            return recommended[index]
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let mangas = manga[indexPath.row]
+        let dataForCells = getMangaDataCell(indexPath.row)
+        
+//        let mangas = manga[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mangaInfoCell") as? mangaInfoCell else {
             return UITableViewCell()
         }
-        cell.sypnosisLabel.text = mangas["synopsis"] as? String
+        cell.sypnosisLabel.text = dataForCells["synopsis"] as? String
         
-        let imagepath = mangas["images"] as! [String:Any]
+        let imagepath = dataForCells["images"] as! [String:Any]
 //
         let jpgImage = imagepath["jpg"] as! [String:Any]
         print(jpgImage,"prtting in the other vc")
@@ -50,7 +75,7 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         let imgUrl = URL(string: imageurlPath)
         
         //the below code access the trailer images within the Anime dict
-        let trailerpath = mangas["images"] as! [String:Any]
+        let trailerpath = dataForCells["images"] as! [String:Any]
         // the below coede access the images dict
         let trailerImage = trailerpath["webp"] as? [String:Any]
         //this access the final level of the dict
@@ -67,13 +92,20 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         
         
 //
-        let title = mangas["title"] as? String
+        let title = dataForCells["title"] as? String
         cell.mangaimage.af.setImage(withURL:imgUrl!)
         cell.mangtitleLabel.text = title
         
 //        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        cell.rankingLabel.text = mangas["rating"] as? String
+//        if cell.rankingLabel.text == (dataForCells["rating"] as? String){
+//
+//        }else {
+//            cell.rankingLabel.text = "No ranking available"
+//        }
+        let ranks = String((dataForCells["rank"] as? Int)!)
+        
+        cell.rankingLabel.text = "Number \(ranks)!"
         navigationItem.title = categories[indexPath.row]
         
         return cell

@@ -17,6 +17,7 @@ class AnimeListCell: UITableViewCell {
     @IBOutlet weak var sypnosisLabel: UILabel!
     @IBOutlet weak var epidNumLabel: UILabel!
     
+    @IBOutlet weak var rankingLabel: UILabel!
     
     
     override func awakeFromNib() {

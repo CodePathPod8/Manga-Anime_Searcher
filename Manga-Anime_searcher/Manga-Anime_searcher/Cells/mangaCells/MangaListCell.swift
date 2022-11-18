@@ -15,12 +15,14 @@ class MangaListCell: UITableViewCell {
     @IBOutlet weak var mangaTitleLabel: UILabel!
     
   
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     
     @IBOutlet weak var sypnosisLabel: UILabel!
     
-    @IBOutlet weak var epidNumLabel: UILabel!
+//    @IBOutlet weak var epidNumLabel: UILabel!
+    
+    @IBOutlet weak var rankinLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,7 +13,7 @@ class MangaViewController: UIViewController {
     var categories = ["", "Top/Popular Manga", "Latest Manga", "", "Action Manga"]
     
     var manga = [[String:Any]]()
-    var random = [String:Any]()
+//    var random = [String:Any]()
     var recommended = [[String:Any]]()
     @IBOutlet weak var MangaTableView: UITableView!
     
@@ -33,33 +33,29 @@ class MangaViewController: UIViewController {
                 self.manga = dataDictionary["data"] as![[String: Any]]
                 
                 self.MangaTableView.reloadData()
-                print(dataDictionary,"this is manga")
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+                print(self.manga,"this is manga")
+              
             }
         }
         task.resume()
-        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
-        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                self.random = dataDictionary["data"] as! [String: Any]
-                
-                self.MangaTableView.reloadData()
-                print(dataDictionary,"this is randon mangas")
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
-            }
-        }
-        tasks.resume()
+//        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+//        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+//            // This will run when the network request returns
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let data = data {
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//
+//                self.random = dataDictionary["data"] as! [String: Any]
+//
+//                self.MangaTableView.reloadData()
+//                print(dataDictionary,"this is randon mangas")
+
+//            }
+//        }
+//        tasks.resume()
         let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!
         let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -73,7 +69,7 @@ class MangaViewController: UIViewController {
                 self.recommended = dataDictionary["data"] as![[String: Any]]
                 
                 self.MangaTableView.reloadData()
-                print(dataDictionary,"this is recommended")
+                print(self.recommended,"this is recommended")
                 // TODO: Get the array of movies
                 // TODO: Store the movies in a property to use elsewhere
                 // TODO: Reload your table view data
@@ -111,28 +107,43 @@ class MangaViewController: UIViewController {
         alert.addAction(cancelAction)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     func moveOnMangaList(index: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
             return
         }
-        vc.mangas = [manga[index]]
+        vc.scenario = .topManga
         navigationController?.pushViewController(vc, animated: true)
     }
-    func moveOnMangaInfo(tindex: Int,cindex: Int){
+//    func moveOnRandomMangaList(index: Int){
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+//            return
+//        }
+//        vc.scenario = .randomManga
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+    func moveOnRecomMangaList(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+            return
+        }
+        vc.scenario = .recomManga
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
+    func moveOnMangaInfo(scenario: ScenarioMangaType,cindex: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaInfoVC") as? MangaInfoVC else {
             return
         }
-        vc.manga = [manga[tindex]]
+        switch scenario {
+        case .topManga:
+            vc.manga = [manga[cindex]]
+        case .recomManga:
+            vc.recommended = [recommended[cindex]]
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -150,15 +161,32 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Bigger_cell") as! Manga_Bigger_Cell
             cell.summary.text = mangas["synopsis"] as? String
             //images for bigcell
-            let imagepath = mangas["images"] as! [String:Any]
-//
-            let jpgImage = imagepath["jpg"] as! [String:Any]
+            if let imagepath = (mangas["images"] as? [String:Any]){
+                
+                let jpgImage = imagepath["jpg"] as! [String:Any]
+                
+                let imageurlPath = jpgImage["large_image_url"] as! String
+                let imgUrl = URL(string: imageurlPath)
+                cell.SmallerImage.af.setImage(withURL:imgUrl!)
+            } else if let recomendedimagepath = mangas["entry"] as? [[String:Any]] {
             
-            let imageurlPath = jpgImage["large_image_url"] as! String
-            let imgUrl = URL(string: imageurlPath)
+    
+            
+            print(recomendedimagepath,"this is rec imagepa")
+//            let imagepath = recomendedimagepath["images"] as? [String:Any]
+//    //
+//            let jpgImage = imagepath["jpg"] as! [String:Any]
+//
+//            let imageurlPath = jpgImage["large_image_url"] as! String
+//            let imgUrl = URL(string: imageurlPath)
+//            cell.SmallerImage.af.setImage(withURL:imgUrl!)
+            
+            }
+//
+           
 //
             let title = mangas["title"] as? String
-            cell.SmallerImage.af.setImage(withURL:imgUrl!)
+            print(title,"thiis tittle")
             cell.titleLabel.text = title
             //the below code access the trailer images within the Anime dict
             let trailerpath = mangas["images"] as! [String:Any]
@@ -181,10 +209,13 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
             cell.MangaCategory.text = categories[indexPath.row]
             cell.mangaTransferred = manga
+            if indexPath.row == 2 {
+                cell.mangaTransferred = recommended
+            }
 //            if indexPath.row == 2 {
-//                cell.mangaTransferred = recommended
-//                cell.randomTransferred = random
-            //} //else if indexPath.row == 4 {
+////                cell.mangaTransferred = recommended
+////                cell.randomTransferred = random
+//            } else if indexPath.row == 4 {
 //                cell.mangaTransferred = recommended
 //            }
             
@@ -192,12 +223,26 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             
             cell.onClickSeeAllMangaClosure = {
                 index in if let indexp = index {
-                    self.moveOnMangaList(index: indexp)
+                    if indexPath.row == 2
+                    {
+                        self.moveOnRecomMangaList(index: indexp)
+                    } else if indexPath.row == 1 {
+                        self.moveOnMangaList(index: indexp)
+                    }
+        
                 }
             }
             
             cell.didSelectMangaClosure = { tabindex, colindex in if let tabindex = tabindex,let colindex = colindex {
-                self.moveOnMangaInfo(tindex: tabindex, cindex: colindex)
+                var sceranio: ScenarioMangaType = .topManga
+                if indexPath.row == 2
+                {
+                    sceranio = .recomManga
+                } else if indexPath.row == 1
+                {
+                    sceranio = .topManga
+                }
+                self.moveOnMangaInfo(scenario: sceranio, cindex: colindex)
             }
             }
             
