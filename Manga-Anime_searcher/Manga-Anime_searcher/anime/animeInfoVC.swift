@@ -108,10 +108,10 @@ extension animeInfoVC: UITableViewDelegate,UITableViewDataSource{
         
 //        cell.epidNumLabel.text = animes["episodes"] as? String
         
-        let rank = String((dataForCell["rank"] as? Int)!)
+        let rank = String((dataForCell["rank"] as? Int ?? 0)!)
         cell.rankingLabel.text = rank
         
-        let epinum = String((dataForCell["episodes"] as? Int)!)
+        let epinum = String((dataForCell["episodes"] as? Int ?? 0)!)
         cell.epidNumLabel.text = epinum
         
         cell.stattusLabel.text = dataForCell["status"] as? String
