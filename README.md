@@ -99,8 +99,7 @@ Here's a walkthrough of implemented user stories:
 
 | Oct. 28, 2022 | Nov. 4, 2022 | Nov 12, 2022 | Nov 19, 2022 
 | --- | --- | --- | --- |
-| ![](https://i.imgur.com/Gu0WNTr.gif) | ![](https://i.imgur.com/tNt2IpK.gif) | ![](https://i.imgur.com/8teSKZT.gif) | ![](https://i.imgur.com/7ESMNSH.gif) |
-![](https://i.imgur.com/7ESMNSH.gif)
+| ![](https://i.imgur.com/Gu0WNTr.gif) | ![](https://i.imgur.com/tNt2IpK.gif) | ![](https://i.imgur.com/8teSKZT.gif) | ![](https://i.imgur.com/KrLHUQt.gif) |
 
 
 ## Schema 
