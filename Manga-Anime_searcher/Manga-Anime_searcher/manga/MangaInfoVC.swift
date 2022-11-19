@@ -73,6 +73,8 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         print(jpgImage,"prtting in the other vc")
         let imageurlPath = jpgImage["large_image_url"] as! String
         let imgUrl = URL(string: imageurlPath)
+        cell.mangaimage.af.setImage(withURL:imgUrl!)
+        
         
         //the below code access the trailer images within the Anime dict
         let trailerpath = dataForCells["images"] as! [String:Any]
@@ -99,9 +101,9 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
             cell.mangtitleLabel.text = it
         }
 //
-//        let title = dataForCells["title"] as? String
-        cell.mangaimage.af.setImage(withURL:imgUrl!)
-        cell.mangtitleLabel.text = title
+
+        
+
         
 //        cell.epidNumLabel.text = animes["episodes"] as? String
         

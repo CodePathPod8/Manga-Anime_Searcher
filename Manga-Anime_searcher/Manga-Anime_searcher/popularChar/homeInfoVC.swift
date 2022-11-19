@@ -68,8 +68,8 @@ extension homeInfoVC: UITableViewDelegate,UITableViewDataSource{
             //add default image
         }
         
-//        let arrt =  String((peoples["nicknames"] as? [Character])!)
-        
+//        let arrt =  String((peoples["nicknames"] as? [Character]))
+//        print(arrt)
 //        cell.rankingLabel.text = arrt
         
         

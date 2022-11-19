@@ -32,6 +32,7 @@
 		BD3B22E929273C8700DFAD45 /* homeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B22E829273C8700DFAD45 /* homeCell.swift */; };
 		BD3B22EB2927459800DFAD45 /* homeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B22EA2927459800DFAD45 /* homeInfoVC.swift */; };
 		BD3B22ED292745EE00DFAD45 /* homeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B22EC292745EE00DFAD45 /* homeInfoCell.swift */; };
+		BD3B22F32928C76B00DFAD45 /* ResultRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3B22F22928C76B00DFAD45 /* ResultRoot.swift */; };
 		BD58A0A42904A53400578AE7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD58A0A32904A53400578AE7 /* SignUpViewController.swift */; };
 		BD9845C6291F4D1A00151351 /* MangasmalCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */; };
 		BD9845C8291FB54D00151351 /* AnimeDetailListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */; };
@@ -95,6 +96,7 @@
 		BD3B22E829273C8700DFAD45 /* homeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeCell.swift; sourceTree = "<group>"; };
 		BD3B22EA2927459800DFAD45 /* homeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeInfoVC.swift; sourceTree = "<group>"; };
 		BD3B22EC292745EE00DFAD45 /* homeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeInfoCell.swift; sourceTree = "<group>"; };
+		BD3B22F22928C76B00DFAD45 /* ResultRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRoot.swift; sourceTree = "<group>"; };
 		BD58A0A32904A53400578AE7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BD9845C5291F4D1A00151351 /* MangasmalCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasmalCollectionCell.swift; sourceTree = "<group>"; };
 		BD9845C7291FB54D00151351 /* AnimeDetailListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailListVC.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				BD9845CC2921394500151351 /* Cells */,
 				BD9845D32922D7E500151351 /* manga */,
 				BD9845CB2921391300151351 /* anime */,
+				BD3B22EF2928C39500DFAD45 /* popularChar */,
 				BD10078529047722005E915B /* AppDelegate.swift */,
 				BD10078729047722005E915B /* SceneDelegate.swift */,
 				BD10078B29047722005E915B /* Main.storyboard */,
@@ -185,11 +188,10 @@
 				BD10079029047725005E915B /* LaunchScreen.storyboard */,
 				BD10079329047725005E915B /* Info.plist */,
 				BD1007B529047BCA005E915B /* LoginViewController.swift */,
-				BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */,
 				BD1007B92904A22A005E915B /* ProfileViewController.swift */,
 				BD58A0A32904A53400578AE7 /* SignUpViewController.swift */,
 				BD02C1DD2904F6E800DEF387 /* ProfileCamViewController.swift */,
-				BD3B22EA2927459800DFAD45 /* homeInfoVC.swift */,
+				BD3B22F22928C76B00DFAD45 /* ResultRoot.swift */,
 			);
 			path = "Manga-Anime_searcher";
 			sourceTree = "<group>";
@@ -211,6 +213,24 @@
 			path = "Manga-Anime_searcherUITests";
 			sourceTree = "<group>";
 		};
+		BD3B22EE2928C35400DFAD45 /* PopularCharCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD3B22EC292745EE00DFAD45 /* homeInfoCell.swift */,
+				BD3B22E829273C8700DFAD45 /* homeCell.swift */,
+			);
+			path = PopularCharCell;
+			sourceTree = "<group>";
+		};
+		BD3B22EF2928C39500DFAD45 /* popularChar */ = {
+			isa = PBXGroup;
+			children = (
+				BD1007B72904A0FF005E915B /* HomeFeedViewController.swift */,
+				BD3B22EA2927459800DFAD45 /* homeInfoVC.swift */,
+			);
+			path = popularChar;
+			sourceTree = "<group>";
+		};
 		BD9845CB2921391300151351 /* anime */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,10 +244,9 @@
 		BD9845CC2921394500151351 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BD3B22EE2928C35400DFAD45 /* PopularCharCell */,
 				BD9845D22922D7A200151351 /* mangaCells */,
 				BD9845CD2921395500151351 /* animeCell */,
-				BD3B22E829273C8700DFAD45 /* homeCell.swift */,
-				BD3B22EC292745EE00DFAD45 /* homeInfoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -529,6 +548,7 @@
 				BD10078629047722005E915B /* AppDelegate.swift in Sources */,
 				BD1007BA2904A22A005E915B /* ProfileViewController.swift in Sources */,
 				BD9845D9292328AE00151351 /* MangaInfoVC.swift in Sources */,
+				BD3B22F32928C76B00DFAD45 /* ResultRoot.swift in Sources */,
 				BD9845D72922DD8A00151351 /* MangaListCell.swift in Sources */,
 				BD3B22EB2927459800DFAD45 /* homeInfoVC.swift in Sources */,
 				0F528D2C290F423E00DEAFD1 /* BiggerCell.swift in Sources */,
