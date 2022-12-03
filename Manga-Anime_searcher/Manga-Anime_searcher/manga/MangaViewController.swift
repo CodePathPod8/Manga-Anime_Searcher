@@ -116,13 +116,13 @@ class MangaViewController: UIViewController {
         vc.scenario = .topManga
         navigationController?.pushViewController(vc, animated: true)
     }
-    func moveOnRandomMangaList(index: Int){
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
-            return
-        }
-        vc.scenario = .randomManga
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    func moveOnRandomMangaList(index: Int){
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+//            return
+//        }
+//        vc.scenario = .randomManga
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
     func moveOnRecomMangaList(index: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
@@ -143,13 +143,11 @@ class MangaViewController: UIViewController {
             vc.manga = [manga[cindex]]
             vc.scenario = .topManga
         case .recomManga:
-//            var recentry = [recommended[cindex]]
-//            vc.recommended = [recentry[cindex]]
             vc.recommended = [recommended[cindex]]
             vc.scenario = .recomManga
-        case .randomManga:
-            vc.random = random
-            vc.scenario = .randomManga
+//        case .randomManga:
+//            vc.random = random
+//            vc.scenario = .randomManga
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -163,7 +161,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mangas = manga[indexPath.row]
-        if(indexPath.row == 0 || indexPath.row == 3)
+        if(indexPath.row == 0 || indexPath.row == 2)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Bigger_cell") as! Manga_Bigger_Cell
             cell.summary.text = mangas["synopsis"] as? String
@@ -218,11 +216,12 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Manga_Small_Cell", for: indexPath) as! MangaTableCell
             cell.MangaCategory.text = categories[indexPath.row]
             cell.mangaTransferred = manga
-            if indexPath.row == 2 {
-//                cell.mangaTransferred = recommended
-                cell.randomTransferred = random
-            }
-             else if indexPath.row == 4 {
+//            if indexPath.row == 2 {
+////                cell.mangaTransferred = recommended
+//                cell.randomTransferred = random
+//            }
+//             else
+            if indexPath.row == 4 {
                 cell.mangaTransferred = recommended
             }
             
@@ -230,10 +229,11 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             
             cell.onClickSeeAllMangaClosure = {
                 index in if let indexp = index {
-                    if indexPath.row == 2
-                    {
-                        self.moveOnRandomMangaList(index: indexp)
-                    } else if indexPath.row == 1 {
+//                    if indexPath.row == 2
+//                    {
+//                        self.moveOnRandomMangaList(index: indexp)
+//                    } else
+                    if indexPath.row == 1 {
                         self.moveOnMangaList(index: indexp)
                     } else if indexPath.row == 4 {
                         self.moveOnRecomMangaList(index: indexp)
@@ -245,10 +245,11 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             
             cell.didSelectMangaClosure = { tabindex, colindex in if let tabindex = tabindex,let colindex = colindex {
                 var sceranio: ScenarioMangaType = .topManga
-                if indexPath.row == 2
-                {
-                    sceranio = .randomManga
-                } else if indexPath.row == 1
+//                if indexPath.row == 2
+//                {
+//                    sceranio = .randomManga
+//                } else
+                if indexPath.row == 1
                 {
                     sceranio = .topManga
                 } else if indexPath.row == 4
@@ -267,7 +268,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.row == 0 || indexPath.row == 3)
+        if(indexPath.row == 0 || indexPath.row == 2)
         {
             return 330
         }

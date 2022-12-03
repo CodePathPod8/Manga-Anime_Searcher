@@ -10,7 +10,7 @@ import AlamofireImage
 //troubleshoot
 enum ScenarioMangaType {
     case topManga
-    case randomManga
+//    case randomManga
     case recomManga
 }
 
@@ -105,8 +105,8 @@ class MangaDetailListVC: UIViewController {
         switch scenario {
         case .topManga:
             loadTopmangaData()
-        case .randomManga:
-            loadrandommangaData()
+//        case .randomManga:
+//            loadrandommangaData()
         case .recomManga:
             loadrecommendedmangaData()
         }
@@ -126,8 +126,8 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         switch scenario {
         case .topManga:
             return mangas.count
-        case .randomManga:
-            return random.count
+//        case .randomManga:
+//            return random.count
         case .recomManga:
             return recommended.count
         }
@@ -140,8 +140,8 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         switch scenario {
         case .topManga:
             return mangas[index]
-        case .randomManga:
-            return random
+//        case .randomManga:
+//            return random
         case .recomManga:
             return recommended[index]
         }
@@ -213,9 +213,9 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         case .recomManga:
             vc.recommended = [recommended[indexPath.row]]
             vc.scenario = .recomManga
-        case .randomManga:
-            vc.random = random
-            vc.scenario = .randomManga
+//        case .randomManga:
+//            vc.random = random
+//            vc.scenario = .randomManga
         }
 //        vc.manga = [mangas[indexPath.row]]
         navigationController?.pushViewController(vc, animated: true)

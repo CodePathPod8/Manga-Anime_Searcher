@@ -36,8 +36,8 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         switch scenario {
         case .topManga:
             return manga.count
-        case .randomManga:
-            return random.count
+//        case .randomManga:
+//            return random.count
         case .recomManga:
             return recommended.count
         }
@@ -49,8 +49,8 @@ extension MangaInfoVC: UITableViewDelegate,UITableViewDataSource{
         switch scenario {
         case .topManga:
             return manga[index]
-        case .randomManga:
-            return random
+//        case .randomManga:
+//            return random
         case .recomManga:
             return recommended[index]
         }

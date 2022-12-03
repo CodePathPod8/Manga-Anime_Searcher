@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController,ImageUploading {
     
     @IBOutlet weak var bioContentTextView: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    let user = PFUser.current()!
     
     var profiles = [PFObject]()
     override func viewDidLoad() {
@@ -39,54 +40,26 @@ class ProfileViewController: UIViewController,ImageUploading {
         bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
         
-//        let user = PFUser.current()
 //
-//        let imageData = profilepicImage.image!.pngData()
-////        let imageFile = PFFileObject(name:"image.png", data:imageData!)
-////
-////
-////
-//////        var userPhoto = PFObject(className:"User")
-////
-////        user?["profileimage"] = imageFile
-//////        userPhoto["profileimage"] = imageFile
-////        user?.saveInBackground()
-//
-//        let userImageFile = PFFileObject(name:"image.png", data:imageData!)
-//
-//        userImageFile!.getDataInBackground { (imageData: Data?, error: Error?) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else if let imageData = imageData {
-//                let image = UIImage(data:imageData)
-//            }
-//        }
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        let user = PFUser.current()
-        //showing the username for the logged user
-        usernameLabel.text = user?.username
-        
-        let imageData = profilepicImage.image!.pngData()
-
-        
-        let userImageFile = PFFileObject(name:"image.png", data:imageData!)
-        
-        user?["profileimage"] = userImageFile
-        
-        userImageFile?.getDataInBackground { (imageData: Data?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let imageData = imageData {
-                let image = UIImage(data:imageData)
-                
-            }
+        if user["profileimage"] != nil {
+            let imageFile = user["profileimage"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            profilepicImage.af.setImage(withURL: url)
+        } else {
+            profilepicImage.image = UIImage(named: "profile_tab")
         }
+        
+        //showing the username for the logged user
+        usernameLabel.text = "@ " + user.username!
+        
+        
         
 
        
