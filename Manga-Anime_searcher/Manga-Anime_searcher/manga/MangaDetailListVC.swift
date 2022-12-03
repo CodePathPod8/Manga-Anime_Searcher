@@ -10,7 +10,7 @@ import AlamofireImage
 //troubleshoot
 enum ScenarioMangaType {
     case topManga
-//    case randomManga
+    case randomManga
     case recomManga
 }
 
@@ -24,7 +24,7 @@ class MangaDetailListVC: UIViewController {
     @IBOutlet weak var mangaTableView: UITableView!
     
     var mangas = [[String:Any]]()
-//    var random = [String:Any]()
+    var random = [String:Any]()
     var recommended = [[String:Any]]()
     
     var entryManga = [[String:Any]] ()
@@ -52,26 +52,26 @@ class MangaDetailListVC: UIViewController {
         task.resume()
     }
     
-//    fileprivate func loadrandommangaData(){
-//        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
-//        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-//        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-//        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
-//            // This will run when the network request returns
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else if let data = data {
-//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-//
-//                self.random = dataDictionary["data"] as! [String: Any]
-//
-//                self.mangaTableView.reloadData()
-//                print(dataDictionary,"this is randon mangas")
+    fileprivate func loadrandommangaData(){
+        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 
-//            }
-//        }
-//        tasks.resume()
-//    }
+                self.random = dataDictionary["data"] as! [String: Any]
+
+                self.mangaTableView.reloadData()
+                print(dataDictionary,"this is randon mangas")
+
+            }
+        }
+        tasks.resume()
+    }
     
     fileprivate func loadrecommendedmangaData(){
         let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!
@@ -105,8 +105,8 @@ class MangaDetailListVC: UIViewController {
         switch scenario {
         case .topManga:
             loadTopmangaData()
-//        case .randomManga:
-//            loadrandommangaData()
+        case .randomManga:
+            loadrandommangaData()
         case .recomManga:
             loadrecommendedmangaData()
         }
@@ -126,8 +126,8 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         switch scenario {
         case .topManga:
             return mangas.count
-//        case .randomManga:
-//            return random.count
+        case .randomManga:
+            return random.count
         case .recomManga:
             return recommended.count
         }
@@ -135,18 +135,13 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
 //        return mangas.count
     }
     
-//    func getEntrymanga() {
-//        var entry = entryManga
-//        entry = recommended["entry"]
-//        print(entry)
-//    }
-    
+
     func getMangaDataCell(_ index: Int) -> [String:Any] {
         switch scenario {
         case .topManga:
             return mangas[index]
-//        case .randomManga:
-//            return random[index]
+        case .randomManga:
+            return random
         case .recomManga:
             return recommended[index]
         }
@@ -172,41 +167,18 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
             let imageurlPath = jpgImage["large_image_url"] as! String
             let imgUrl = URL(string: imageurlPath)
             cell.MangaImage.af.setImage(withURL:imgUrl!)
-        } else if let recomendedimagepath = dataforcell["entry"] as? [[String:Any]] {
-            print(recomendedimagepath, "is this printing here?")
-//            let imagrec = recomendedimagepath[1]["imges"] as! [String:Any]
-//            print(imagrec,"this is hapeee")
-//            let it = recomendedimagepath[["images"]] as? String
-//            print(it!, "is this printtint tittles")
+        } else if let recomendedimagepathList = dataforcell["entry"] as? [[String:Any]] {
 
+        print(recomendedimagepathList,"this is rec imagepa")
+            if let Recomimagepath = recomendedimagepathList.first,let imagePath = Recomimagepath["images"] as? [String:Any] {
+                //
+                let jpgImage = imagePath["jpg"] as! [String:Any]
+                
+                let imageurlPath = jpgImage["large_image_url"] as! String
+                let imgUrl = URL(string: imageurlPath)
+                cell.MangaImage.af.setImage(withURL:imgUrl!)
             }
-        
-//        let recomendedimagepath = dataforcell["entry"] as? [[String:Any]]
-//        print(recomendedimagepath!, "is this printing")
-//        
-//        let mailid = recomendedimagepath![0] as? String
-        
-//        let tit = recomendedimagepath["title"] as! String
-        else if let recomendedimagepath = dataforcell["entry"] as? [[String:Any]] {
-            print(recomendedimagepath, "is this printing")
-//            for thig in recomendedimagepath{
-//                print(thig,"inside entry")
-            }
-            
-//             let tit = recomendedimagepath["title"] as? String
-//            print(tit, "this is the title")
-//            let recImage = recomendedimagepath["images"] as? [String:Any]
-            
-            
-//        }
-        
-//        let imagepath = dataforcell["images"] as! [String:Any]
-////
-//        let jpgImage = imagepath["jpg"] as! [String:Any]
-//
-//        let imageurlPath = jpgImage["large_image_url"] as! String
-//        let imgUrl = URL(string: imageurlPath)
-////
+        }
         if let title = (dataforcell["title"] as? String){
             cell.mangaTitleLabel.text = title
         } else if let recomTittle = dataforcell["entry"] as? [[String:Any]] {
@@ -237,8 +209,13 @@ extension MangaDetailListVC: UITableViewDelegate, UITableViewDataSource{
         switch scenario{
         case .topManga:
             vc.manga = [mangas[indexPath.row]]
+            vc.scenario = .topManga
         case .recomManga:
             vc.recommended = [recommended[indexPath.row]]
+            vc.scenario = .recomManga
+        case .randomManga:
+            vc.random = random
+            vc.scenario = .randomManga
         }
 //        vc.manga = [mangas[indexPath.row]]
         navigationController?.pushViewController(vc, animated: true)

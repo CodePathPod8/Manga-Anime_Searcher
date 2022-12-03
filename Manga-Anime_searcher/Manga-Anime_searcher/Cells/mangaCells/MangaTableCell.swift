@@ -53,7 +53,13 @@ class MangaTableCell: UITableViewCell {
 }
 extension MangaTableCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let manga = mangaTransferred[indexPath.item]
+        var manga: [String:Any]? = nil
+        if randomTransferred.isEmpty {
+            manga = mangaTransferred[indexPath.item]
+        } else {
+            manga = randomTransferred
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Manga_Collection_cell", for: indexPath) as? MangasmalCollectionCell else {
             fatalError("Wrong cell class dequeueed for manga")
         }
@@ -67,25 +73,44 @@ extension MangaTableCell: UICollectionViewDataSource, UICollectionViewDelegate, 
 //        let imgUrl = URL(string: imageurlPath)
 //        // display images
 //        cell.mangaImage.af.setImage(withURL:imgUrl!)
-        if let title = (manga["title"] as? String){
-            print(title,"thi is ti")
-            cell.mangaTitleLabel.text = title
-        } else if let recomTittle = manga["entry"] as? [[String:Any]] {
-            let it = recomTittle[0]["title"] as? String
-            print(it,"que es esto?")
-            cell.mangaTitleLabel.text = it
-        }
-//        cell.mangaTitleLabel.text = manga["title"] as? String
-    
-        if let imagepath = (manga["images"] as? [String:Any]){
-            
-            let jpgImage = imagepath["jpg"] as! [String:Any]
-            
-            let imageurlPath = jpgImage["large_image_url"] as! String
-            let imgUrl = URL(string: imageurlPath)
-            cell.mangaImage.af.setImage(withURL:imgUrl!)
-        } else if let recomendedimagepath = manga["entry"] as? [[String:Any]]{
-            //this is how we get picture inside
+        if let manga = manga {
+            if let title = (manga["title"] as? String){
+                print(title,"thi is ti")
+                cell.mangaTitleLabel.text = title
+            } else if let recomTittle = manga["entry"] as? [[String:Any]] {
+                let it = recomTittle[0]["title"] as? String
+                print(it,"que es esto?")
+                cell.mangaTitleLabel.text = it
+            }
+            if let imagepath = (manga["images"] as? [String:Any]){
+                
+                let jpgImage = imagepath["jpg"] as! [String:Any]
+                
+                let imageurlPath = jpgImage["large_image_url"] as! String
+                let imgUrl = URL(string: imageurlPath)
+                cell.mangaImage.af.setImage(withURL:imgUrl!)
+            } else if let recomendedimagepathList = manga["entry"] as? [[String:Any]] {
+
+            print(recomendedimagepathList,"this is rec imagepa")
+                if let Recomimagepath = recomendedimagepathList.first,let imagePath = Recomimagepath["images"] as? [String:Any] {
+                    //
+                    let jpgImage = imagePath["jpg"] as! [String:Any]
+                    
+                    let imageurlPath = jpgImage["large_image_url"] as! String
+                    let imgUrl = URL(string: imageurlPath)
+                    cell.mangaImage.af.setImage(withURL:imgUrl!)
+                }
+            }
+//            if let imagepath = (manga["images"] as? [String:Any]){
+//
+//                let jpgImage = imagepath["jpg"] as! [String:Any]
+//
+//                let imageurlPath = jpgImage["large_image_url"] as! String
+//                let imgUrl = URL(string: imageurlPath)
+//                cell.mangaImage.af.setImage(withURL:imgUrl!)
+//            } else if let recomendedimagepath = manga["entry"] as? [[String:Any]]{
+//                //this is how we get picture inside
+//            }
         }
         return cell
     }

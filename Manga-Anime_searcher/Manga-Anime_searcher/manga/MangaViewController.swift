@@ -10,10 +10,10 @@ import Parse
 import AlamofireImage
 
 class MangaViewController: UIViewController {
-    var categories = ["", "Top/Popular Manga", "Latest Manga", "", "Action Manga"]
+    var categories = ["", "Top/Popular Manga", "Random Manga", "", "Recommended Manga"]
     
     var manga = [[String:Any]]()
-//    var random = [String:Any]()
+    var random = [String:Any]()
     var recommended = [[String:Any]]()
     @IBOutlet weak var MangaTableView: UITableView!
     
@@ -38,24 +38,24 @@ class MangaViewController: UIViewController {
             }
         }
         task.resume()
-//        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
-//        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-//        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-//        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
-//            // This will run when the network request returns
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else if let data = data {
-//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-//
-//                self.random = dataDictionary["data"] as! [String: Any]
-//
-//                self.MangaTableView.reloadData()
-//                print(dataDictionary,"this is randon mangas")
+        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 
-//            }
-//        }
-//        tasks.resume()
+                self.random = dataDictionary["data"] as! [String: Any]
+
+                self.MangaTableView.reloadData()
+                print(dataDictionary,"this is randon mangas")
+
+            }
+        }
+        tasks.resume()
         let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!
         let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -116,13 +116,13 @@ class MangaViewController: UIViewController {
         vc.scenario = .topManga
         navigationController?.pushViewController(vc, animated: true)
     }
-//    func moveOnRandomMangaList(index: Int){
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
-//            return
-//        }
-//        vc.scenario = .randomManga
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+    func moveOnRandomMangaList(index: Int){
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
+            return
+        }
+        vc.scenario = .randomManga
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func moveOnRecomMangaList(index: Int){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "MangaDetailListVC") as? MangaDetailListVC else {
@@ -141,8 +141,15 @@ class MangaViewController: UIViewController {
         switch scenario {
         case .topManga:
             vc.manga = [manga[cindex]]
+            vc.scenario = .topManga
         case .recomManga:
+//            var recentry = [recommended[cindex]]
+//            vc.recommended = [recentry[cindex]]
             vc.recommended = [recommended[cindex]]
+            vc.scenario = .recomManga
+        case .randomManga:
+            vc.random = random
+            vc.scenario = .randomManga
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -168,22 +175,17 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 let imageurlPath = jpgImage["large_image_url"] as! String
                 let imgUrl = URL(string: imageurlPath)
                 cell.SmallerImage.af.setImage(withURL:imgUrl!)
-            } else if let recomendedimagepath = mangas["entry"] as? [[String:Any]] {
-            
-//                let imagerec = recomendedimagepath[1]["images"] as? String
-//                let jpg = imagerec["jpg"] as? [String:Any]
-//                print(imagerec,"finally")
-    
-            
-            print(recomendedimagepath,"this is rec imagepa")
-//            let imagepath = recomendedimagepath["images"] as? [String:Any]
-//    //
-//            let jpgImage = imagepath["jpg"] as! [String:Any]
-//
-//            let imageurlPath = jpgImage["large_image_url"] as! String
-//            let imgUrl = URL(string: imageurlPath)
-//            cell.SmallerImage.af.setImage(withURL:imgUrl!)
-            
+            } else if let recomendedimagepathList = mangas["entry"] as? [[String:Any]] {
+ 
+            print(recomendedimagepathList,"this is rec imagepa")
+                if let Recomimagepath = recomendedimagepathList.first,let imagePath = Recomimagepath["image"] as? [String:Any] {
+                    //
+                    let jpgImage = imagePath["jpg"] as! [String:Any]
+                    
+                    let imageurlPath = jpgImage["large_image_url"] as! String
+                    let imgUrl = URL(string: imageurlPath)
+                    cell.SmallerImage.af.setImage(withURL:imgUrl!)
+                }
             }
 //
             if let title = (mangas["title"] as? String){
@@ -194,10 +196,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 print(it,"que es esto?")
                 cell.titleLabel.text = it
             }
-////
-//            let title = mangas["title"] as? String
-//
-//            cell.titleLabel.text = title
+
             //the below code access the trailer images within the Anime dict
             let trailerpath = mangas["images"] as! [String:Any]
             // the below coede access the images dict
@@ -220,14 +219,12 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
             cell.MangaCategory.text = categories[indexPath.row]
             cell.mangaTransferred = manga
             if indexPath.row == 2 {
+//                cell.mangaTransferred = recommended
+                cell.randomTransferred = random
+            }
+             else if indexPath.row == 4 {
                 cell.mangaTransferred = recommended
             }
-//            if indexPath.row == 2 {
-////                cell.mangaTransferred = recommended
-////                cell.randomTransferred = random
-//            } else if indexPath.row == 4 {
-//                cell.mangaTransferred = recommended
-//            }
             
             cell.index = indexPath.row
             
@@ -235,9 +232,12 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 index in if let indexp = index {
                     if indexPath.row == 2
                     {
-                        self.moveOnRecomMangaList(index: indexp)
+                        self.moveOnRandomMangaList(index: indexp)
                     } else if indexPath.row == 1 {
                         self.moveOnMangaList(index: indexp)
+                    } else if indexPath.row == 4 {
+                        self.moveOnRecomMangaList(index: indexp)
+                        
                     }
         
                 }
@@ -247,10 +247,14 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 var sceranio: ScenarioMangaType = .topManga
                 if indexPath.row == 2
                 {
-                    sceranio = .recomManga
+                    sceranio = .randomManga
                 } else if indexPath.row == 1
                 {
                     sceranio = .topManga
+                } else if indexPath.row == 4
+                {
+                    sceranio = .recomManga
+                    
                 }
                 self.moveOnMangaInfo(scenario: sceranio, cindex: colindex)
             }
@@ -272,3 +276,5 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 }
+
+

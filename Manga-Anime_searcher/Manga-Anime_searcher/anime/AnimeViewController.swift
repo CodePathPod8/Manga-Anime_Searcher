@@ -44,7 +44,9 @@ class AnimeViewController: UIViewController {
             }
         }
         task.resume()
-        let urls = URL(string: "https://api.jikan.moe/v4/seasons/2022/fall")!
+//        let urls = URL(string: "https://api.jikan.moe/v4/seasons/2022/fall")!
+        let urls = URL(string: "https://api.jikan.moe/v4/seasons/now")!
+    
         let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let tasks = sessions.dataTask(with: requests) { (data, response, error) in
