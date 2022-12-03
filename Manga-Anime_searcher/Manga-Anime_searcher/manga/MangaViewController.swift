@@ -10,7 +10,7 @@ import Parse
 import AlamofireImage
 
 class MangaViewController: UIViewController {
-    var categories = ["", "Top/Popular Manga", "Random Manga", "", "Recommended Manga"]
+    var categories = ["", "Top/Popular Manga", "Random Manga", "Recommended Manga", "Recommended Manga"]
     
     var manga = [[String:Any]]()
     var random = [String:Any]()
@@ -38,24 +38,24 @@ class MangaViewController: UIViewController {
             }
         }
         task.resume()
-        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
-        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-
-                self.random = dataDictionary["data"] as! [String: Any]
-
-                self.MangaTableView.reloadData()
-                print(dataDictionary,"this is randon mangas")
-
-            }
-        }
-        tasks.resume()
+//        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+//        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+//            // This will run when the network request returns
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let data = data {
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//
+//                self.random = dataDictionary["data"] as! [String: Any]
+//
+//                self.MangaTableView.reloadData()
+//                print(dataDictionary,"this is randon mangas")
+//
+//            }
+//        }
+//        tasks.resume()
         let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!
         let requests2 = URLRequest(url: urls2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessions2 = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -157,7 +157,7 @@ class MangaViewController: UIViewController {
 }
 extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manga.count > 5 ? 5 : manga.count
+        return manga.count > 4 ? 4 : manga.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mangas = manga[indexPath.row]
@@ -221,7 +221,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
 //                cell.randomTransferred = random
 //            }
 //             else
-            if indexPath.row == 4 {
+            if indexPath.row == 3 {
                 cell.mangaTransferred = recommended
             }
             
@@ -235,7 +235,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
 //                    } else
                     if indexPath.row == 1 {
                         self.moveOnMangaList(index: indexp)
-                    } else if indexPath.row == 4 {
+                    } else if indexPath.row == 3 {
                         self.moveOnRecomMangaList(index: indexp)
                         
                     }
@@ -252,7 +252,7 @@ extension MangaViewController: UITableViewDelegate, UITableViewDataSource{
                 if indexPath.row == 1
                 {
                     sceranio = .topManga
-                } else if indexPath.row == 4
+                } else if indexPath.row == 3
                 {
                     sceranio = .recomManga
                     

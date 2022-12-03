@@ -52,26 +52,26 @@ class MangaDetailListVC: UIViewController {
         task.resume()
     }
     
-    fileprivate func loadrandommangaData(){
-        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
-        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-
-                self.random = dataDictionary["data"] as! [String: Any]
-
-                self.mangaTableView.reloadData()
-                print(dataDictionary,"this is randon mangas")
-
-            }
-        }
-        tasks.resume()
-    }
+//    fileprivate func loadrandommangaData(){
+//        let urls = URL(string: "https://api.jikan.moe/v4/random/manga")!
+//        let requests = URLRequest(url: urls, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let sessions = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        let tasks = sessions.dataTask(with: requests) { (data, response, error) in
+//            // This will run when the network request returns
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let data = data {
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//
+//                self.random = dataDictionary["data"] as! [String: Any]
+//
+//                self.mangaTableView.reloadData()
+//                print(dataDictionary,"this is randon mangas")
+//
+//            }
+//        }
+//        tasks.resume()
+//    }
     
     fileprivate func loadrecommendedmangaData(){
         let urls2 = URL(string: "https://api.jikan.moe/v4/recommendations/manga")!

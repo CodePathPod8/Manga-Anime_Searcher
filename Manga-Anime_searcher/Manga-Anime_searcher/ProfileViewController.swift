@@ -39,6 +39,8 @@ class ProfileViewController: UIViewController,ImageUploading {
         bioContentTextView.text = "Tell everyone about you"
         bioContentTextView.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
+        title = "My Profile"
+        profilepicImage.roundedpictures()
         
 //
         
@@ -53,7 +55,7 @@ class ProfileViewController: UIViewController,ImageUploading {
             let url = URL(string: urlString)!
             profilepicImage.af.setImage(withURL: url)
         } else {
-            profilepicImage.image = UIImage(named: "profile_tab")
+            profilepicImage.image = UIImage(named: "profilepicture-re")
         }
         
         //showing the username for the logged user
@@ -102,4 +104,22 @@ class ProfileViewController: UIViewController,ImageUploading {
         alert.addAction(cancelAction)
     }
     
+}
+
+extension UIImageView {
+    func roundedpictures() {
+        //make a image rounded
+        self.layer.cornerRadius = self.frame.size.width/2
+        clipsToBounds = true
+        self.layer.borderWidth = 4.0
+        self.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    func getShows() {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 4.0
+    }
 }
