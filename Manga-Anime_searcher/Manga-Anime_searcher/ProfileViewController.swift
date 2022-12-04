@@ -59,10 +59,11 @@ class ProfileViewController: UIViewController,ImageUploading {
         }
         
         //showing the username for the logged user
-        usernameLabel.text = "@ " + user.username!
+        usernameLabel.text = "@" + user.username!
         
-        
-        
+        //making bio text invisible
+        BioTextView.text = ""
+        bioContentTextView.text = ""
 
        
     }

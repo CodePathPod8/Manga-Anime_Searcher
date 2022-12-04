@@ -104,10 +104,13 @@ class AnimeDetailListVC: UIViewController {
         switch scenarios {
         case .popularAnime:
             loadPopularAnimeData()
+            title = categories[1]
         case .latestAnime:
             loadLatestAnimeData()
+            title = categories[2]
         case .upcomingAnime:
             loadUpcomingAnimeData()
+            title = categories[4]
         }
         
         // Do any additional setup after loading the view.

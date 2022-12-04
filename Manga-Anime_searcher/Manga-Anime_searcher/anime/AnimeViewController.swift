@@ -128,7 +128,7 @@ class AnimeViewController: UIViewController {
         }
         //TODO: do we really need to pass data if you alread retrieve inside VC?
 //        vc.latest = [latest[index]]
-        
+        title = categories[1]
         vc.scenarios = .latestAnime
         
 //        vc.categories = [categories[index]]

@@ -16,7 +16,7 @@ enum ScenarioMangaType {
 
 class MangaDetailListVC: UIViewController {
     
-    var categories = ["", "Popular Anime", "Latest Anime", "", "Action Anime"]
+    var categories = ["", "Top/Popular Manga", "Random Manga", "Recommended Manga", "Recommended Manga"]
     //troubleshoto
     var scenario: ScenarioMangaType = .topManga
     
@@ -105,10 +105,12 @@ class MangaDetailListVC: UIViewController {
         switch scenario {
         case .topManga:
             loadTopmangaData()
+            title = categories[1]
 //        case .randomManga:
 //            loadrandommangaData()
         case .recomManga:
             loadrecommendedmangaData()
+            title = categories[3]
         }
 
         // Do any additional setup after loading the view.
