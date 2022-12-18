@@ -23,15 +23,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setup()
     }
     
-    @IBAction func dismissKeyboardBtn(_ sender: Any) {
-        print("button was clicked")
-        textFieldShouldReturn(usernameField)
-        textFieldShouldReturn(passwordField)
-        textFieldShouldReturn(confirmPwField)
-        textFieldShouldReturn(emailField)
-    }
+  
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -88,14 +83,56 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
             
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setup(){
+        setupDismissKeyboardGesture()
+        setupKeyboardHiding()
     }
-    */
+    
+    func setupDismissKeyboardGesture(){
+        //this code will dismiss the keyboard
+        let dismisskeyboardTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        view.addGestureRecognizer(dismisskeyboardTap)
 
+    }
+    @objc func viewTapped(_ recognizer: UITapGestureRecognizer){
+        if recognizer.state == UIGestureRecognizer.State.ended{
+            view.endEditing(true)
+        }
+    }
+    
+    func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(signinkeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(signinkeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+  
+
+}
+extension SignUpViewController {
+    @objc func signinkeyboardWillShow(sender: NSNotification) {
+
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextfield = UIResponder.currentFirst() as? UITextField else {
+            return
+        }
+        
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextfield.frame, from: currentTextfield.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+
+        print("print value for tefield: \(textFieldBottomY)")
+        print("print value for keyboardtopy: \(keyboardTopY)")
+        if textFieldBottomY > 520.0 {
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newframey = (textBoxY - keyboardTopY / 2) * -1
+            view.frame.origin.y = newframey
+        }
+
+    }
+    @objc func signinkeyboardWillHide(sender: NSNotification){
+        view.frame.origin.y = 0
+    }
 }
