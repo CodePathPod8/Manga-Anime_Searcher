@@ -103,7 +103,7 @@ Here's a walkthrough of implemented user stories:
 
 | Dec 18, 2022
 | --- |
-| ![](https://i.imgur.com/ln69PGJ.gif) |
+| ![](https://i.imgur.com/oTTNpRr.gif) |
 
 ## Schema 
 [This section will be completed in Unit 9]
