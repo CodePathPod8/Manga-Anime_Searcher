@@ -103,11 +103,11 @@ Here's a walkthrough of implemented user stories:
 
 | Dec 18, 2022
 | --- |
-| ![](https://i.imgur.com/oTTNpRr.gif) |
+| ![](https://i.imgur.com/SOl3tvu.gif) |
 
 ## Schema 
 [This section will be completed in Unit 9]
-![](https://i.imgur.com/oTTNpRr.gif)
+
 ### Models
 | Property | Type | Description |
 | --- | --- | --- |
