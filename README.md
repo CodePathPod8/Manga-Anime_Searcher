@@ -107,6 +107,7 @@ Here's a walkthrough of implemented user stories:
 
 ## Schema 
 [This section will be completed in Unit 9]
+![](https://i.imgur.com/oTTNpRr.gif)
 ### Models
 | Property | Type | Description |
 | --- | --- | --- |
